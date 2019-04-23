@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="demontip">
-<meta property="og:url" content="http://yoursite.com/tags/c/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/C/index.html">
 <meta property="og:site_name" content="demontip">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/c/">
+  <link rel="canonical" href="http://yoursite.com/tags/C/">
 
 
 
 
 
-  <title>Tag: c++ | demontip</title>
+  <title>Tag: C++ | demontip</title>
   
 
 
@@ -241,7 +241,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>c++<small>Tag</small>
+        <h1>C++<small>Tag</small>
         </h1>
       </div>
 
@@ -253,17 +253,69 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/04/23/图-广度优先-深度优先-递归-非递归实现/" itemprop="url">
+            <a class="post-title-link" href="/2019/04/23/C++ 虚函数问题总结/" itemprop="url">
               
-                <span itemprop="name">图 广度优先+深度优先 递归+非递归实现</span>
+                <span itemprop="name">C++ 虚函数问题总结</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T11:49:26+08:00" content="2019-04-23">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T13:24:40+08:00" content="2019-04-23">
           04-23
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/04/09/C++ 小问题集锦/" itemprop="url">
+              
+                <span itemprop="name">C++ 小问题总结</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-09T19:08:37+08:00" content="2019-04-09">
+          04-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/04/09/用C++设计不能被继承的类/" itemprop="url">
+              
+                <span itemprop="name">用C++设计一个不能被继承的类</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-09T19:08:37+08:00" content="2019-04-09">
+          04-09
         </time>
       </div>
 
@@ -663,67 +715,6 @@
                 $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
               },
               error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
-  
-
-  
-
-</body>
-</html>
-nter, error) {
                 console.log('Failed to create');
               }
             });
