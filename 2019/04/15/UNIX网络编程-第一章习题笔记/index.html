@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="UNIX网络编程,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.3把图1-5中的socket的第一个参数改为9999.编译并运行这个程序。结果如何？找出对应于所输出出错的errno中的值。你如何可以找出这个错误的更多信息。 解答： 1234567891011121314#include	&quot;unp.h&quot;int main(int argc, char **argv)&amp;#123;	int					sockfd, n;	char				recvline[MAXLI">
+<meta name="keywords" content="UNIX网络编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UNIX网络编程-第一章习题笔记">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/UNIX网络编程-第一章习题笔记/index.html">
+<meta property="og:site_name" content="demontip">
+<meta property="og:description" content="1.3把图1-5中的socket的第一个参数改为9999.编译并运行这个程序。结果如何？找出对应于所输出出错的errno中的值。你如何可以找出这个错误的更多信息。 解答： 1234567891011121314#include	&quot;unp.h&quot;int main(int argc, char **argv)&amp;#123;	int					sockfd, n;	char				recvline[MAXLI">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-15T15:26:50.810Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UNIX网络编程-第一章习题笔记">
+<meta name="twitter:description" content="1.3把图1-5中的socket的第一个参数改为9999.编译并运行这个程序。结果如何？找出对应于所输出出错的errno中的值。你如何可以找出这个错误的更多信息。 解答： 1234567891011121314#include	&quot;unp.h&quot;int main(int argc, char **argv)&amp;#123;	int					sockfd, n;	char				recvline[MAXLI">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/15/UNIX网络编程-第一章习题笔记/">
+
+
+
+
+
+  <title>UNIX网络编程-第一章习题笔记 | demontip</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">demontip</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/UNIX网络编程-第一章习题笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="demontip">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/tou1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="demontip">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">UNIX网络编程-第一章习题笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T18:02:34+08:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UNIX网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">UNIX网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/15/UNIX网络编程-第一章习题笔记/" class="leancloud_visitors" data-flag-title="UNIX网络编程-第一章习题笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-3"><a href="#1-3" class="headerlink" title="1.3"></a>1.3</h3><p><strong><u>把图1-5中的socket的第一个参数改为9999.编译并运行这个程序。结果如何？找出对应于所输出出错的errno中的值。你如何可以找出这个错误的更多信息。</u></strong></p>
+<p><strong>解答：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span>	<span class="meta-string">"unp.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span>					sockfd, n;</span><br><span class="line">	<span class="keyword">char</span>				recvline[MAXLINE + <span class="number">1</span>];</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span>	<span class="title">servaddr</span>;</span></span><br><span class="line">	<span class="keyword">if</span> (argc != <span class="number">2</span>)</span><br><span class="line">		err_quit(<span class="string">"usage: a.out &lt;IPaddress&gt;"</span>);</span><br><span class="line">	<span class="comment">//if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) &lt; 0)	</span></span><br><span class="line">	<span class="keyword">if</span> ( (sockfd = socket(<span class="number">9999</span>, SOCK_STREAM, <span class="number">0</span>)) &lt; <span class="number">0</span>)</span><br><span class="line">		err_sys(<span class="string">"socket error"</span>);</span><br><span class="line"></span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上图代码中，将socket第一个参数改为9999，编译并运行，得到结果：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./daytimetcpcli <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">socket error: Address family <span class="keyword">not</span> supported by protocol</span><br></pre></td></tr></table></figure>
+<p>我们可以去errno.h文件中寻找相关的错误信息，errno.h一般在 <em>/usr/include/sys/</em> 文件夹下面，如果找不到的话，可以去 <em>/usr/include/asm-generic</em> 文件夹下面找一下，打开errno.h。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _ASM_GENERIC_ERRNO_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _ASM_GENERIC_ERRNO_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm-generic/errno-base.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EDEADLK		35	<span class="comment">/* Resource deadlock would occur */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENAMETOOLONG	36	<span class="comment">/* File name too long */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOLCK		37	<span class="comment">/* No record locks available */</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * This error code is special: arch syscall entry code will return</span></span><br><span class="line"><span class="comment"> * -ENOSYS if users try to call a syscall that doesn't exist.  To keep</span></span><br><span class="line"><span class="comment"> * failures of syscalls that really do exist distinguishable from</span></span><br><span class="line"><span class="comment"> * failures due to attempts to use a nonexistent syscall, syscall</span></span><br><span class="line"><span class="comment"> * implementations should refrain from returning -ENOSYS.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOSYS		38	<span class="comment">/* Invalid system call number */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOTEMPTY	39	<span class="comment">/* Directory not empty */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ELOOP		40	<span class="comment">/* Too many symbolic links encountered */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EWOULDBLOCK	EAGAIN	<span class="comment">/* Operation would block */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOMSG		42	<span class="comment">/* No message of desired type */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EIDRM		43	<span class="comment">/* Identifier removed */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ECHRNG		44	<span class="comment">/* Channel number out of range */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EL2NSYNC	45	<span class="comment">/* Level 2 not synchronized */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EL3HLT		46	<span class="comment">/* Level 3 halted */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EL3RST		47	<span class="comment">/* Level 3 reset */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ELNRNG		48	<span class="comment">/* Link number out of range */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EUNATCH		49	<span class="comment">/* Protocol driver not attached */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOCSI		50	<span class="comment">/* No CSI structure available */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EL2HLT		51	<span class="comment">/* Level 2 halted */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EBADE		52	<span class="comment">/* Invalid exchange */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EBADR		53	<span class="comment">/* Invalid request descriptor */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EXFULL		54	<span class="comment">/* Exchange full */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOANO		55	<span class="comment">/* No anode */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EBADRQC		56	<span class="comment">/* Invalid request code */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EBADSLT		57	<span class="comment">/* Invalid slot */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EDEADLOCK	EDEADLK</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EBFONT		59	<span class="comment">/* Bad font file format */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOSTR		60	<span class="comment">/* Device not a stream */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENODATA		61	<span class="comment">/* No data available */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ETIME		62	<span class="comment">/* Timer expired */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOSR		63	<span class="comment">/* Out of streams resources */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENONET		64	<span class="comment">/* Machine is not on the network */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOPKG		65	<span class="comment">/* Package not installed */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EREMOTE		66	<span class="comment">/* Object is remote */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOLINK		67	<span class="comment">/* Link has been severed */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EADV		68	<span class="comment">/* Advertise error */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ESRMNT		69	<span class="comment">/* Srmount error */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ECOMM		70	<span class="comment">/* Communication error on send */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EPROTO		71	<span class="comment">/* Protocol error */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EMULTIHOP	72	<span class="comment">/* Multihop attempted */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EDOTDOT		73	<span class="comment">/* RFS specific error */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EBADMSG		74	<span class="comment">/* Not a data message */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EOVERFLOW	75	<span class="comment">/* Value too large for defined data type */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOTUNIQ	76	<span class="comment">/* Name not unique on network */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EBADFD		77	<span class="comment">/* File descriptor in bad state */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EREMCHG		78	<span class="comment">/* Remote address changed */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ELIBACC		79	<span class="comment">/* Can not access a needed shared library */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ELIBBAD		80	<span class="comment">/* Accessing a corrupted shared library */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ELIBSCN		81	<span class="comment">/* .lib section in a.out corrupted */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ELIBMAX		82	<span class="comment">/* Attempting to link in too many shared libraries */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ELIBEXEC	83	<span class="comment">/* Cannot exec a shared library directly */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EILSEQ		84	<span class="comment">/* Illegal byte sequence */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ERESTART	85	<span class="comment">/* Interrupted system call should be restarted */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ESTRPIPE	86	<span class="comment">/* Streams pipe error */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EUSERS		87	<span class="comment">/* Too many users */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOTSOCK	88	<span class="comment">/* Socket operation on non-socket */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EDESTADDRREQ	89	<span class="comment">/* Destination address required */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EMSGSIZE	90	<span class="comment">/* Message too long */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EPROTOTYPE	91	<span class="comment">/* Protocol wrong type for socket */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOPROTOOPT	92	<span class="comment">/* Protocol not available */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EPROTONOSUPPORT	93	<span class="comment">/* Protocol not supported */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ESOCKTNOSUPPORT	94	<span class="comment">/* Socket type not supported */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EOPNOTSUPP	95	<span class="comment">/* Operation not supported on transport endpoint */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EPFNOSUPPORT	96	<span class="comment">/* Protocol family not supported */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EAFNOSUPPORT	97	<span class="comment">/* Address family not supported by protocol */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EADDRINUSE	98	<span class="comment">/* Address already in use */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EADDRNOTAVAIL	99	<span class="comment">/* Cannot assign requested address */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENETDOWN	100	<span class="comment">/* Network is down */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENETUNREACH	101	<span class="comment">/* Network is unreachable */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENETRESET	102	<span class="comment">/* Network dropped connection because of reset */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ECONNABORTED	103	<span class="comment">/* Software caused connection abort */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ECONNRESET	104	<span class="comment">/* Connection reset by peer */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOBUFS		105	<span class="comment">/* No buffer space available */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EISCONN		106	<span class="comment">/* Transport endpoint is already connected */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOTCONN	107	<span class="comment">/* Transport endpoint is not connected */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ESHUTDOWN	108	<span class="comment">/* Cannot send after transport endpoint shutdown */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ETOOMANYREFS	109	<span class="comment">/* Too many references: cannot splice */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ETIMEDOUT	110	<span class="comment">/* Connection timed out */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ECONNREFUSED	111	<span class="comment">/* Connection refused */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EHOSTDOWN	112	<span class="comment">/* Host is down */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EHOSTUNREACH	113	<span class="comment">/* No route to host */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EALREADY	114	<span class="comment">/* Operation already in progress */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EINPROGRESS	115	<span class="comment">/* Operation now in progress */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ESTALE		116	<span class="comment">/* Stale file handle */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EUCLEAN		117	<span class="comment">/* Structure needs cleaning */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOTNAM		118	<span class="comment">/* Not a XENIX named type file */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENAVAIL		119	<span class="comment">/* No XENIX semaphores available */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EISNAM		120	<span class="comment">/* Is a named type file */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EREMOTEIO	121	<span class="comment">/* Remote I/O error */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EDQUOT		122	<span class="comment">/* Quota exceeded */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOMEDIUM	123	<span class="comment">/* No medium found */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EMEDIUMTYPE	124	<span class="comment">/* Wrong medium type */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ECANCELED	125	<span class="comment">/* Operation Canceled */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOKEY		126	<span class="comment">/* Required key not available */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EKEYEXPIRED	127	<span class="comment">/* Key has expired */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EKEYREVOKED	128	<span class="comment">/* Key has been revoked */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EKEYREJECTED	129	<span class="comment">/* Key was rejected by service */</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* for robust mutexes */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EOWNERDEAD	130	<span class="comment">/* Owner died */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOTRECOVERABLE	131	<span class="comment">/* State not recoverable */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERFKILL		132	<span class="comment">/* Operation not possible due to RF-kill */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> EHWPOISON	133	<span class="comment">/* Memory page has hardware error */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>里面有各种错误提示信息，对应于这道题的错误信息，我们可以找到：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EAFNOSUPPORT	97	<span class="comment">/* Address family not supported by protocol */</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="1-4"><a href="#1-4" class="headerlink" title="1.4"></a>1.4</h3><p><strong><u>修改图1-5中的while循环，加入一个计数器，累计read返回大于零的次数。在终止前输出这个计数器值。编译并运行你的新客户程序。</u></strong></p>
+<p><strong>解答：</strong></p>
+<p>将图1-5程序修改</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span>	<span class="meta-string">"unp.h"</span></span></span><br><span class="line"><span class="keyword">int</span></span><br><span class="line">main(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span>					sockfd, n, counter = <span class="number">0</span>; <span class="comment">//在这里加一个计数器counter</span></span><br><span class="line">	<span class="keyword">char</span>				recvline[MAXLINE + <span class="number">1</span>];</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span>	<span class="title">servaddr</span>;</span></span><br><span class="line">	<span class="keyword">if</span> (argc != <span class="number">2</span>)</span><br><span class="line">		err_quit(<span class="string">"usage: a.out &lt;IPaddress&gt;"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> ( (sockfd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>)) &lt; <span class="number">0</span>)	</span><br><span class="line">		err_sys(<span class="string">"socket error"</span>);</span><br><span class="line">	bzero(&amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</span><br><span class="line">	servaddr.sin_family = AF_INET;</span><br><span class="line">	servaddr.sin_port   = htons(<span class="number">13</span>);	<span class="comment">/* daytime server */</span></span><br><span class="line">	<span class="keyword">if</span> (inet_pton(AF_INET, argv[<span class="number">1</span>], &amp;servaddr.sin_addr) &lt;= <span class="number">0</span>)</span><br><span class="line">		err_quit(<span class="string">"inet_pton error for %s"</span>, argv[<span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">if</span> (connect(sockfd, (SA *) &amp;servaddr, <span class="keyword">sizeof</span>(servaddr)) &lt; <span class="number">0</span>)</span><br><span class="line">		err_sys(<span class="string">"connect error"</span>);</span><br><span class="line">	<span class="keyword">while</span> ( (n = read(sockfd, recvline, MAXLINE)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        counter++;  <span class="comment">//每循环依次代表read一次，counter加1。</span></span><br><span class="line">		recvline[n] = <span class="number">0</span>;	<span class="comment">/* null terminate */</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">fputs</span>(recvline, <span class="built_in">stdout</span>) == EOF)</span><br><span class="line">			err_sys(<span class="string">"fputs error"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span>)</span><br><span class="line">		err_sys(<span class="string">"read error"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"read counter = %d/n"</span>, counter); <span class="comment">//输出这个counter值。</span></span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译并运行</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">15</span> APR <span class="number">2019</span> <span class="number">22</span>:<span class="number">42</span>:<span class="number">07</span> CST</span><br><span class="line">read counter = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UNIX网络编程/" rel="tag"># UNIX网络编程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/15/现代操作系统-引论/" rel="next" title="现代操作系统-引论">
+                <i class="fa fa-chevron-left"></i> 现代操作系统-引论
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/17/UNIX环境高级编程-第一章习题笔记/" rel="prev" title="UNIX环境高级编程-第一章习题笔记">
+                UNIX环境高级编程-第一章习题笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/tou1.jpg" alt="demontip">
+            
+              <p class="site-author-name" itemprop="name">demontip</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/demontip" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:slumga96@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3"><span class="nav-number">1.</span> <span class="nav-text">1.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4"><span class="nav-number">2.</span> <span class="nav-text">1.4</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">demontip</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("0zaTtU7DOf8lRoenguiTX99B-gzGzoHsz", "JrHh23VU42P2dJcTrvLIBpPU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

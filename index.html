@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,12 +80,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hasson">
+<meta property="og:title" content="demontip">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hasson">
+<meta property="og:site_name" content="demontip">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hasson">
+<meta name="twitter:title" content="demontip">
 
 
 
@@ -93,7 +93,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -121,7 +121,7 @@
 
 
 
-  <title>Hasson</title>
+  <title>demontip</title>
   
 
 
@@ -152,7 +152,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hasson</span>
+        <span class="site-title">demontip</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -217,16 +217,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
-            
-            日程表
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-sitemap">
           <a href="/sitemap.xml" rel="section">
             
@@ -269,16 +259,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/C++ 小问题集锦/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/图-广度优先-深度优先-递归-非递归实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tou1.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
     </span>
 
     
@@ -288,7 +278,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/09/C++ 小问题集锦/" itemprop="url">C++ 小问题集锦</a></h1>
+                <a class="post-title-link" href="/2019/04/23/图-广度优先-深度优先-递归-非递归实现/" itemprop="url">图 广度优先+深度优先 递归+非递归实现</a></h1>
         
 
         <div class="post-meta">
@@ -300,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-09T19:08:37+08:00">
-                2019-04-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T11:49:26+08:00">
+                2019-04-23
               </time>
             
 
@@ -323,8 +313,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/算法与数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">算法与数据结构</span>
                   </a>
                 </span>
 
@@ -340,7 +330,7 @@
 
           
           
-             <span id="/2019/04/09/C++ 小问题集锦/" class="leancloud_visitors" data-flag-title="C++ 小问题集锦">
+             <span id="/2019/04/23/图-广度优先-深度优先-递归-非递归实现/" class="leancloud_visitors" data-flag-title="图 广度优先+深度优先 递归+非递归实现">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -373,11 +363,17 @@
       
         
           
-            <h6 id="复制构造函数问题"><a href="#复制构造函数问题" class="headerlink" title="复制构造函数问题"></a>复制构造函数问题</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">int</span> vaule;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	A(A other) &#123;value = other.value;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A a = <span class="number">10</span>;</span><br><span class="line">    A b = a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里A(A other)传入的参数是A的一个实例，传递的是具体的值，所以在形参到实参的传递中会发生拷贝，调用复制构造函数来构造 A other这个实例，从而陷入无限循环的调用中导致栈溢出。</p>
-<p>解决方法：修改为A(const A&amp; other)。</p>
-
-          
+          广度优先遍历
+定义广度优先搜索（BFS）是最基本的一种图搜索算法，也是很多图算法的原型，如Prim的最小生成树算法和Dijkstra的单源最短路径算法都用到了BFS的思想。
+BFS算法以源节点s开始，计算从源节点到每个可到达的节点的距离（最少的边数），同时生成一棵“广度优先搜索树”。这棵树以源节点s
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/23/图-广度优先-深度优先-递归-非递归实现/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -424,16 +420,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/用C++设计不能被继承的类/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/UNIX环境高级编程-环境搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tou1.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
     </span>
 
     
@@ -443,7 +439,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/09/用C++设计不能被继承的类/" itemprop="url">用C++设计一个不能被继承的类</a></h1>
+                <a class="post-title-link" href="/2019/04/18/UNIX环境高级编程-环境搭建/" itemprop="url">UNIX环境高级编程-环境搭建（ubuntu 16.04）</a></h1>
         
 
         <div class="post-meta">
@@ -455,8 +451,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-09T19:08:37+08:00">
-                2019-04-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T15:05:21+08:00">
+                2019-04-18
               </time>
             
 
@@ -478,8 +474,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/UNIX环境高级编程/" itemprop="url" rel="index">
+                    <span itemprop="name">UNIX环境高级编程</span>
                   </a>
                 </span>
 
@@ -495,7 +491,7 @@
 
           
           
-             <span id="/2019/04/09/用C++设计不能被继承的类/" class="leancloud_visitors" data-flag-title="用C++设计一个不能被继承的类">
+             <span id="/2019/04/18/UNIX环境高级编程-环境搭建/" class="leancloud_visitors" data-flag-title="UNIX环境高级编程-环境搭建（ubuntu 16.04）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -528,17 +524,16 @@
       
         
           
-            <p><strong>方法一. 定义静态函数</strong></p>
-<p>由于子类会调用父类的构造函数，一个类要想不能被继承，可以把它的构造函数和析构函数定义为私有函数，这样子类构造时就会报错。</p>
-<p>但同时由于构造函数是私有的，也就无法创建实例了。这时需要再定义静态函数来创建和释放实例。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>：</span><br><span class="line">        A() &#123;&#125;</span><br><span class="line">    	~A() &#123;&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    	<span class="function"><span class="keyword">static</span> A* <span class="title">GetA</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            A *a = <span class="keyword">new</span> A();</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">DeleteA</span><span class="params">(A* a)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">delete</span> a; </span><br><span class="line">            a = <span class="number">0</span>; <span class="comment">//防止指针a指向不确定的内存空间</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这里，子类不可以继承A，同时可以通过A<em> b = A::GetA() 来定义一个A的实例。（**</em>因为成员函数GetA()是static的，所以可以通过类名直接调用。***）</p>
-<p><strong>方法二.  友元和模板</strong></p>
-<p>方法一只能局限于在堆上创建实例，并且通过这种额外定义函数的方式，感觉破坏了类的原有形式。更好的解决方式如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Afinal</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    	<span class="keyword">friend</span> A;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">		Afinal() &#123;&#125;</span><br><span class="line">    	~Afinal() &#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> :</span> <span class="keyword">virtual</span> <span class="keyword">public</span> Afinal&lt;A&gt;</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">		A() &#123;&#125;</span><br><span class="line">		~A() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>让A类再虚拟继承一个父类Afinal，这个父类的构造和析构函数是私有的，并且将A类声明为友元。那A类在创建实例的时候，就可以访问这个父类Afinal的构造和析构函数了，同时A类不允许继承，因为继承的子类会跳过A类，直接调用Ainal的构造函数，显然这样会发生错误，因为Afinal的构造函数是私有的。</p>
-
-          
+          《UNIX环境高级编程》作为学习linux、多线程多进程的经典著作，可以说是每位程序员的必读书。 这本书作者也提供了非常详细的源代码示例，但是下载好代码后需要我们自己搭建运行环境，下面我就实际操作一遍 环境的搭建。
+源代码的下载地址www.apuebook.com , 我用的是第三版，找到Sourc
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/18/UNIX环境高级编程-环境搭建/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -585,16 +580,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/04/LeetCode————30-Substring-with-Concatenation-of-ALL-Words/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/UNIX环境高级编程-第一章习题笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tou1.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
     </span>
 
     
@@ -604,7 +599,654 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/04/LeetCode————30-Substring-with-Concatenation-of-ALL-Words/" itemprop="url">LeetCode————30.Substring with Concatenation of ALL Words</a></h1>
+                <a class="post-title-link" href="/2019/04/17/UNIX环境高级编程-第一章习题笔记/" itemprop="url">UNIX环境高级编程-第一章习题笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-17T20:23:45+08:00">
+                2019-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UNIX环境高级编程/" itemprop="url" rel="index">
+                    <span itemprop="name">UNIX环境高级编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/17/UNIX环境高级编程-第一章习题笔记/" class="leancloud_visitors" data-flag-title="UNIX环境高级编程-第一章习题笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1.3在1.7节中，perror的参数是用ISO C的属性const定义的，而strerror的整形参数没有用此属性定义，为什么？
+解答：
+12#include &lt;string.h&gt;char *strerror(int errnum);
+12#include &lt;stdio.h&gt
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/17/UNIX环境高级编程-第一章习题笔记/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/UNIX网络编程-第一章习题笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="demontip">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/tou1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="demontip">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/15/UNIX网络编程-第一章习题笔记/" itemprop="url">UNIX网络编程-第一章习题笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T18:02:34+08:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UNIX网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">UNIX网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/15/UNIX网络编程-第一章习题笔记/" class="leancloud_visitors" data-flag-title="UNIX网络编程-第一章习题笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1.3把图1-5中的socket的第一个参数改为9999.编译并运行这个程序。结果如何？找出对应于所输出出错的errno中的值。你如何可以找出这个错误的更多信息。
+解答：
+1234567891011121314#include	"unp.h"int main(int argc, char **arg
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/15/UNIX网络编程-第一章习题笔记/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/现代操作系统-引论/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="demontip">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/tou1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="demontip">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/15/现代操作系统-引论/" itemprop="url">现代操作系统-引论</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T18:02:34+08:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/现代操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">现代操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/15/现代操作系统-引论/" class="leancloud_visitors" data-flag-title="现代操作系统-引论">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          《现代操作系统》第一章主要是一些操作系统的基础概念，包括操作系统的历史、计算机硬件、系统调用等。下面通过课后习题来复习一下这一章的内容。
+1.操作系统的两大主要作用。
+操作系统有两个基本上独立的任务。
+一. 向应用程序提供一个资源集的清晰抽象。（自顶向下的观点）
+二. 管理一个复杂系统的各个部分，现
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/15/现代操作系统-引论/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/UNIX网络编程-环境搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="demontip">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/tou1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="demontip">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/13/UNIX网络编程-环境搭建/" itemprop="url">UNIX网络编程-环境搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-13T11:31:45+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UNIX网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">UNIX网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/13/UNIX网络编程-环境搭建/" class="leancloud_visitors" data-flag-title="UNIX网络编程-环境搭建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          UNIX网络编程 这本书作者提供了非常详细的源代码示例，但是下载好代码后需要我们自己搭建运行环境，下面我就实际操作一遍 环境的搭建。
+源代码的下载地址www.unpbook.com , 找到Source Code，下载下来得到 unpv13e.tar.gz，解压。
+搭建过程打开unpv13e文件夹，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/13/UNIX网络编程-环境搭建/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/04/30. Substring-with-Concatenation-of-ALL-Words/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="demontip">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/tou1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="demontip">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/04/30. Substring-with-Concatenation-of-ALL-Words/" itemprop="url">30.Substring with Concatenation of ALL Words</a></h1>
         
 
         <div class="post-meta">
@@ -639,8 +1281,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode题目详解/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode题目详解</span>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -656,7 +1298,7 @@
 
           
           
-             <span id="/2018/12/04/LeetCode————30-Substring-with-Concatenation-of-ALL-Words/" class="leancloud_visitors" data-flag-title="LeetCode————30.Substring with Concatenation of ALL Words">
+             <span id="/2018/12/04/30. Substring-with-Concatenation-of-ALL-Words/" class="leancloud_visitors" data-flag-title="30.Substring with Concatenation of ALL Words">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -689,19 +1331,15 @@
       
         
           
-            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given a string, <strong>s</strong>, and a list of words, <strong>words</strong>, that are all of the same length. Find all starting indices of substring(s) in <strong>s</strong> that is a concatenation of each word in <strong>words</strong> exactly once and without any intervening characters.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">  s = <span class="string">"barfoothefoobarman"</span>,</span><br><span class="line">  words = [<span class="string">"foo"</span>,<span class="string">"bar"</span>]</span><br><span class="line">Output: [<span class="number">0</span>,<span class="number">9</span>]</span><br><span class="line">Explanation: Substrings starting at index <span class="number">0</span> <span class="keyword">and</span> <span class="number">9</span> are <span class="string">"barfoor"</span> <span class="keyword">and</span> <span class="string">"foobar"</span> respectively.</span><br><span class="line">The output order does <span class="keyword">not</span> matter, returning [<span class="number">9</span>,<span class="number">0</span>] is fine too.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">  s = <span class="string">"wordgoodstudentgoodword"</span>,</span><br><span class="line">  words = [<span class="string">"word"</span>,<span class="string">"student"</span>]</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
-<p><strong>难度: Hard</strong> </p>
-<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>给一个字符串 <strong>s</strong> ,和一串单词列表 <strong>words</strong> ,并且单词都是相同长度。（不知道为什么给的Example2里，两个单词就不是同样的长度。。。） </p>
-<p>把这些单词组合起来（不管顺序），找一下在 <strong>s</strong> 中是否有这些组合，有的话返回这些组合在 <strong>s</strong> 中出现的第一个下标。</p>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>用两个map&lt;string，map&gt;，第一个存放每个word和出现的次数，第二个存放每个word被找到的次数。在 <strong>s</strong> 中遍历查找，设一共有N个word，每当查找到一个word，该word被找到的次数就加1，如果连续找到了N个word, 并且每个word被找到的次数等于这个word在words里出现的次数，说明我们成功找到了words的一个组合。</p>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; findSubstring(<span class="built_in">string</span> s, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; words) &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; counts;                  <span class="comment">//存放每个word,及其个数</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; indexes;                                <span class="comment">//存放最终的返回列表</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">string</span> word : words)                           <span class="comment">//把words映射到map</span></span><br><span class="line">            counts[word]++;</span><br><span class="line">        <span class="keyword">int</span> n = s.length(), num = words.size();    </span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span> || num == <span class="number">0</span>) <span class="keyword">return</span> indexes;              </span><br><span class="line">        <span class="keyword">int</span> len = words[<span class="number">0</span>].length();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - num * len + <span class="number">1</span>; i++) &#123;        <span class="comment">//在s中查找是否有words,words总长是num*len,所以查到第n-num*len+1时还没有，那后面剩下的字符不到num*len个，不可能再找组合。</span></span><br><span class="line">            <span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; seen;                 <span class="comment">//存放每个word找到的个数</span></span><br><span class="line">            <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (; j &lt; num; j++) &#123;</span><br><span class="line">                <span class="built_in">string</span> word = s.substr(i + j * len, len);</span><br><span class="line">                <span class="keyword">if</span> (counts.find(word) != counts.end()) &#123;</span><br><span class="line">                    seen[word]++;</span><br><span class="line">                    <span class="keyword">if</span> (seen[word] &gt; counts[word])</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (j == num) indexes.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> indexes;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
+          题目描述You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a c
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/04/30. Substring-with-Concatenation-of-ALL-Words/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -748,16 +1386,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/LeetCode————8-String-to-Integer/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/8. String-to-Integer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tou1.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
     </span>
 
     
@@ -767,7 +1405,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/27/LeetCode————8-String-to-Integer/" itemprop="url">LeetCode————8.String to Integer</a></h1>
+                <a class="post-title-link" href="/2018/11/27/8. String-to-Integer/" itemprop="url">8.String to Integer</a></h1>
         
 
         <div class="post-meta">
@@ -802,8 +1440,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode题目详解/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode题目详解</span>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -819,7 +1457,7 @@
 
           
           
-             <span id="/2018/11/27/LeetCode————8-String-to-Integer/" class="leancloud_visitors" data-flag-title="LeetCode————8.String to Integer">
+             <span id="/2018/11/27/8. String-to-Integer/" class="leancloud_visitors" data-flag-title="8.String to Integer">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -852,22 +1490,16 @@
       
         
           
-            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Implement <code>atoi</code> which converts a string to an integer.</p>
-<p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.<br>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.<br>If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.<br>If no valid conversion could be performed, a zero value is returned.</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li>Only the space character <code>&#39; &#39;</code> is considered as whitespace character.</li>
-<li>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range:$[-2^{31}, 2^{31}-1]$.If the numerical value is out of the ranges of representable values, INT_MAX $(2^{31}-1)$ or INT_MIN $-(2^{31})$ is returned.</li>
-</ul>
-<p><strong><em>难度： Medium</em></strong></p>
-<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>​        输入一串字符串，要求从第一个非空字符（空字符即<code>&#39; &#39;</code>）检查，如果检查出如下结果，则表明成功检查到整数： 第一个字符为 <code>‘+’</code>或者<code>&#39;-&#39;</code>或者无符号，且后面跟着至少一个<code>&#39;0&#39;~&#39;9&#39;</code>的数字字符，（不包含小数点） 。若检查成功，输出该整数的32位int型表示，检查失败，输出0。如果检查到的数超出了32位int的范围：$[-2^{31}, 2^{31}-1]$，则相应的输出最大值INT_MAX $2^{31}-1$ , 或者最小值INT_MIN $-(2^{31})$。</p>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>这道题目难度不大，但是需要考虑的情况比较多，对于提高写代码的逻辑思考能力，是个不错的锻炼。</p>
-<p>思路分析直接见代码吧！</p>
-<p><code>c++代码</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(<span class="built_in">string</span> str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *p = str.c_str();    </span><br><span class="line">        <span class="keyword">long</span> result=<span class="number">0</span>;                           <span class="comment">//保存int型结果</span></span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">false</span>;                       <span class="comment">//flag标记是正是负</span></span><br><span class="line">        <span class="keyword">while</span>(*p == <span class="string">' '</span>) p++;                    <span class="comment">//查找第一个不为空的字符</span></span><br><span class="line">        <span class="keyword">if</span>((*p)==<span class="string">'+'</span>) p++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((*p)==<span class="string">'-'</span>)&#123;flag=<span class="literal">true</span>;p++;&#125;</span><br><span class="line">        <span class="keyword">if</span>(((*p-<span class="string">'0'</span>)&lt;<span class="number">0</span> || (*p-<span class="string">'0'</span>)&gt;<span class="number">9</span>)) <span class="keyword">return</span> <span class="number">0</span>;  <span class="comment">//第一个字符或者‘+’、‘-’之后第一个字符不是0-9数字对应的字符，表明检查失败，返回0</span></span><br><span class="line">    </span><br><span class="line">        <span class="keyword">while</span>(*p-<span class="string">'0'</span>&gt;=<span class="number">0</span> &amp;&amp; *p-<span class="string">'9'</span>&lt;=<span class="number">0</span>)                   </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> a = *(p++) - <span class="string">'0'</span>;</span><br><span class="line">            result = <span class="number">10</span>*result + a;                 </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(!flag &amp;&amp; result &gt; <span class="number">0x7fffffff</span>) result=<span class="number">0x7fffffff</span>; <span class="comment">//大于INT_MAX</span></span><br><span class="line">            <span class="keyword">if</span>(flag &amp;&amp; result &gt; <span class="number">0x80000000</span>) result=<span class="number">0x80000000</span>;  <span class="comment">//小于INT_MIN</span></span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> flag?-result:result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>用时12ms, 见下图</strong></p>
-<img src="/2018/11/27/LeetCode————8-String-to-Integer/1.png">
-          
+          题目描述Implement atoi which converts a string to an integer.
+The function first discards as many whitespace characters as necessary until the first non-w
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/27/8. String-to-Integer/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -936,7 +1568,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Hasson</p>
+              <img class="site-author-image" itemprop="image" src="/images/tou1.jpg" alt="demontip">
+            
+              <p class="site-author-name" itemprop="name">demontip</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -947,7 +1581,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -958,7 +1592,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -969,7 +1603,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1026,7 +1660,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Hasson</span>
+  <span class="author" itemprop="copyrightHolder">demontip</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -1142,13 +1776,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
 
