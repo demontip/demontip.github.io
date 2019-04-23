@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3eafff;
+  background: #98db2d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2957,53 +2957,64 @@ code {
   margin: 1px 3px;
   padding: 1px 3px;
 }
-.site-author-name {
-  margin: 48px 0 0;
-  color: #090909;
-  font-family: 'Comic Sans MS', sans-serif;
-}
-.links-of-blogroll {
-  font-size: 14px;
-  margin-bottom: 42px;
-}
-.links-of-author {
-  margin-top: 30px;
-  margin-bottom: 58px;
-}
-.sidebar-inner {
-  color: #649ab6;
+.sidebar-active #sidebar-dimmer {
+  opacity: 0;
 }
 .sidebar {
-  box-shadow: inset 2px 2px 40px #bdb2b2;
-  background: rgba(255,255,255,0);
+  box-shadow: 0 0 5px rgba(225,118,0,0.7);
+  background: rgba(255,255,255,0.7);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-.sidebar a {
-  color: #649ab6;
-  border-bottom-color: #649ab6;
-  border-bottom: none;
+.links-of-blogroll-title {
+  margin-right: 5px;
+  font-size: 15px;
+  font-weight: bold;
 }
-.sidebar a:hover {
-  color: #0c0b0b;
-}
-.site-state-item {
-  display: inline-block;
-  padding: 8px 28px;
-  border-left: 1px solid #649ab6;
+.sidebar-nav li {
+  font-size: 15px;
+  color: #87daff;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #649ab6;
-  border-bottom-color: #649ab6;
+  color: #87daff;
+  border-bottom-color: #ff7600;
 }
-.sidebar-nav li:hover {
-  color: #0c0b0b;
+.post-toc .nav .active-current > a {
+  color: #ff7600;
 }
-.sidebar-toggle {
-  background: #649ab6;
+.post-toc .nav .active > a {
+  color: #ff7600;
+  border-bottom-color: #ff7600;
 }
-.back-to-top {
-  background: #649ab6;
+.post-toc ol {
+  padding: 0 10px 5px 10px;
+}
+.post-toc ol a {
+  color: #87daff;
+  border-bottom-color: #999;
+}
+.sidebar-inner {
+  color: rgba(34,244,246,0.75);
+}
+.site-author-name {
+  margin: 5px 0 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 35px;
+}
+.site-description {
+  letter-spacing: 5px;
+  font-size: 15px;
+  color: #ff7600;
+  font-weight: bold;
+}
+.site-state {
+  margin-right: 7px;
+}
+.site-state-item {
+  padding: 0 15px;
+  border-left: 1px solid #ff7600;
 }
 .site-author-image {
   border: 2px solid #fff;
@@ -3024,17 +3035,11 @@ img:hover {
   -o-transform: initial;
   transform: initial;
 }
-.post-toc .nav .active>a {
-  color: #4f7e96;
+.sidebar-toggle {
+  background: #649ab6;
 }
-.post-toc ol a:hover {
-  color: #7784ba;
-}
-.sidebar-nav .sidebar-nav-active:hover {
-  color: #37596c;
-}
-a {
-  border-bottom: none;
+.back-to-top {
+  background: #649ab6;
 }
 .post-button {
   margin-top: 30px;
