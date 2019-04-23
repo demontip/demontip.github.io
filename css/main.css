@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #59ffff;
+  background: #ffffd5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2975,6 +2975,9 @@ code {
 }
 .sidebar {
   box-shadow: inset 2px 2px 40px #bdb2b2;
+  background: rgba(30,30,30,0.7);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .sidebar a {
   color: #649ab6;
@@ -2995,9 +2998,6 @@ code {
 }
 .sidebar-nav li:hover {
   color: #0c0b0b;
-}
-.sidebar {
-  background: url("/images/cebianlan.jpg");
 }
 .sidebar-toggle {
   background: #649ab6;
