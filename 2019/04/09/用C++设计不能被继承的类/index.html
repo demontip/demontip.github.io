@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C++思考总结,">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="方法一. 定义静态函数 由于子类会调用父类的构造函数，一个类要想不能被继承，可以把它的构造函数和析构函数定义为私有函数，这样子类构造时就会报错。 但同时由于构造函数是私有的，也就无法创建实例了。这时需要再定义静态函数来创建和释放实例。 1234567891011121314151617class A&amp;#123;private：        A() &amp;#123;&amp;#125;    	~A() &amp;#">
-<meta name="keywords" content="C++思考总结">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用C++设计一个不能被继承的类">
 <meta property="og:url" content="http://yoursite.com/2019/04/09/用C++设计不能被继承的类/index.html">
-<meta property="og:site_name" content="Hasson">
+<meta property="og:site_name" content="demontip">
 <meta property="og:description" content="方法一. 定义静态函数 由于子类会调用父类的构造函数，一个类要想不能被继承，可以把它的构造函数和析构函数定义为私有函数，这样子类构造时就会报错。 但同时由于构造函数是私有的，也就无法创建实例了。这时需要再定义静态函数来创建和释放实例。 1234567891011121314151617class A&amp;#123;private：        A() &amp;#123;&amp;#125;    	~A() &amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-09T13:32:40.674Z">
+<meta property="og:updated_time" content="2019-04-23T05:16:32.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用C++设计一个不能被继承的类">
 <meta name="twitter:description" content="方法一. 定义静态函数 由于子类会调用父类的构造函数，一个类要想不能被继承，可以把它的构造函数和析构函数定义为私有函数，这样子类构造时就会报错。 但同时由于构造函数是私有的，也就无法创建实例了。这时需要再定义静态函数来创建和释放实例。 1234567891011121314151617class A&amp;#123;private：        A() &amp;#123;&amp;#125;    	~A() &amp;#">
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -126,7 +126,7 @@
 
 
 
-  <title>用C++设计一个不能被继承的类 | Hasson</title>
+  <title>用C++设计一个不能被继承的类 | demontip</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hasson</span>
+        <span class="site-title">demontip</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -201,16 +201,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -221,22 +211,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule/" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            日程表
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
-            
-            站点地图
+            归档
           </a>
         </li>
       
@@ -276,13 +256,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/用C++设计不能被继承的类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tou1.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hasson">
+      <meta itemprop="name" content="demontip">
     </span>
 
     
@@ -399,7 +379,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C-思考总结/" rel="tag"># C++思考总结</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -412,8 +392,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/04/LeetCode————30-Substring-with-Concatenation-of-ALL-Words/" rel="next" title="LeetCode————30.Substring with Concatenation of ALL Words">
-                <i class="fa fa-chevron-left"></i> LeetCode————30.Substring with Concatenation of ALL Words
+              <a href="/2018/12/04/30. Substring-with-Concatenation-of-ALL-Words/" rel="next" title="30.Substring with Concatenation of ALL Words">
+                <i class="fa fa-chevron-left"></i> 30.Substring with Concatenation of ALL Words
               </a>
             
           </div>
@@ -422,8 +402,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/09/C++ 小问题集锦/" rel="prev" title="C++ 小问题集锦">
-                C++ 小问题集锦 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/09/C++ 小问题集锦/" rel="prev" title="C++ 小问题总结">
+                C++ 小问题总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -481,7 +461,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Hasson</p>
+              <img class="site-author-image" itemprop="image" src="/images/tou1.jpg" alt="demontip">
+            
+              <p class="site-author-name" itemprop="name">demontip</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -490,9 +472,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives">
+                <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -503,7 +485,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -514,7 +496,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -571,7 +553,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Hasson</span>
+  <span class="author" itemprop="copyrightHolder">demontip</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -687,13 +669,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
