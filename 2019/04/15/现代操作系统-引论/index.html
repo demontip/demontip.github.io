@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="现代操作系统,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="《现代操作系统》第一章主要是一些操作系统的基础概念，包括操作系统的历史、计算机硬件、系统调用等。下面通过课后习题来复习一下这一章的内容。 1.操作系统的两大主要作用。 操作系统有两个基本上独立的任务。 一. 向应用程序提供一个资源集的清晰抽象。（自顶向下的观点） 二. 管理一个复杂系统的各个部分，现代计算机包含处理器、存储器、时钟、磁盘、鼠标、网络接口、打印机以及其他设备。操作系统的任务是在相互竞">
+<meta name="keywords" content="现代操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="现代操作系统-引论">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/现代操作系统-引论/index.html">
+<meta property="og:site_name" content="demontip">
+<meta property="og:description" content="《现代操作系统》第一章主要是一些操作系统的基础概念，包括操作系统的历史、计算机硬件、系统调用等。下面通过课后习题来复习一下这一章的内容。 1.操作系统的两大主要作用。 操作系统有两个基本上独立的任务。 一. 向应用程序提供一个资源集的清晰抽象。（自顶向下的观点） 二. 管理一个复杂系统的各个部分，现代计算机包含处理器、存储器、时钟、磁盘、鼠标、网络接口、打印机以及其他设备。操作系统的任务是在相互竞">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-22T06:11:13.338Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="现代操作系统-引论">
+<meta name="twitter:description" content="《现代操作系统》第一章主要是一些操作系统的基础概念，包括操作系统的历史、计算机硬件、系统调用等。下面通过课后习题来复习一下这一章的内容。 1.操作系统的两大主要作用。 操作系统有两个基本上独立的任务。 一. 向应用程序提供一个资源集的清晰抽象。（自顶向下的观点） 二. 管理一个复杂系统的各个部分，现代计算机包含处理器、存储器、时钟、磁盘、鼠标、网络接口、打印机以及其他设备。操作系统的任务是在相互竞">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/15/现代操作系统-引论/">
+
+
+
+
+
+  <title>现代操作系统-引论 | demontip</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">demontip</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/现代操作系统-引论/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="demontip">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/tou1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="demontip">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">现代操作系统-引论</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T18:02:34+08:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/现代操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">现代操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/15/现代操作系统-引论/" class="leancloud_visitors" data-flag-title="现代操作系统-引论">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>《现代操作系统》第一章主要是一些操作系统的基础概念，包括操作系统的历史、计算机硬件、系统调用等。下面通过课后习题来复习一下这一章的内容。</p>
+<p><strong>1.操作系统的两大主要作用。</strong></p>
+<p>操作系统有两个基本上独立的任务。</p>
+<p>一. 向应用程序提供一个资源集的清晰抽象。（自顶向下的观点）</p>
+<p>二. 管理一个复杂系统的各个部分，现代计算机包含处理器、存储器、时钟、磁盘、鼠标、网络接口、打印机以及其他设备。操作系统的任务是在相互竞争的程序之间有序的控制对处理器、存储器以及其他IO接口设备的分配。（自底向上的观点）</p>
+<p><strong>2. 9种不同类型的操作系统的应用。</strong></p>
+<ul>
+<li><p><strong>大型机操作系统</strong>（Mainframe operating system）：主要特点是IO处理能力强大。如：</p>
+<ul>
+<li><p>批处理（不需要交互式用户干预的周期性作业）：保险公司的索赔处理、连锁商店的销售报告</p>
+</li>
+<li><p>事务处理（大量小的请求）：银行的支票处理、航班预定</p>
+</li>
+<li>分时系统（多个远程用户同时在计算机上运行作业）：大型数据库上的查询</li>
+</ul>
+</li>
+<li><p><strong>服务器操作系统</strong>（Server operating system）：运行在服务器（可以是大型的个人计算机、工作站、大型机）上，通过网路同时为若干个用户服务。如：苹果手机的Siri所提供的语音到文本的转换服务</p>
+</li>
+<li><p><strong>多处理器操作系统</strong>（Multiprocessor operating system）：多个CPU连接成单个的系统，如：图像处理和视频编辑</p>
+</li>
+<li><strong>个人计算机操作系统</strong>（Personal computer operating system）：支持多道程序处理，启动时通常有几十个程序开始运行。如：字处理、电子表格、游戏、Internet访问</li>
+<li><strong>掌上计算机操作系统</strong>（Handheld computer operating system）：可以握在手上的小型计算机。如：平板电脑、智能手机</li>
+<li><strong>嵌入式操作系统</strong>（Embedded operating system）：用来控制设备，不允许用户安装软件，如：微波炉、电视机、汽车、DVD刻录机、MP3播放器、移动电话等设备</li>
+<li><strong>传感器节点操作系统</strong>（Sensor-node operating system）：一种可以彼此通信并且使用无线通信基站的微型计算机。如：建筑物周边保护、国土边界保卫、森林火灾探测、气象预测用的温度和降水测量、战场上敌方运动的信息收集</li>
+<li><p><strong>实时操作系统</strong>（Real-time operating system）：将时间作为参数。</p>
+<ul>
+<li>令某个动作必须在规定时间发生（硬实时系统）：汽车在装配线上的移动</li>
+<li>虽然不希望偶尔违反最终时限，但仍可以接受：数字音频、多媒体系统</li>
+</ul>
+</li>
+<li><p><strong>智能卡操作系统</strong>（Smart-card operating system）：包含一块CPU芯片的信用卡：电子支付</p>
+</li>
+</ul>
+<p><strong>3.分时系统和多道程序系统的区别。</strong></p>
+<p>多道程序系统是指将内存分为几个部分，每部分存放不同的作业，当一个作业等待I/O操作完成时，另一个作业仍可以使用CPU。</p>
+<p>分时系统是多道程序的变体，它允许每个用户有各自的联机终端，如果有20个用户登录，其中17个在等待，则CPU可分配给另外3个需要的作业轮流执行。</p>
+<p>多道程序在只有一个用户的系统里运行，而分时系统在此基础上加入了多个用户的并行处理。 </p>
+<p><strong>4.为了使用高速缓存，主存被划分为若干个cache行，通常每行长32或64字节。每次缓存一整个cache行。每次缓存一整行而不是一个字节的优点：</strong></p>
+<p>存储器访问表现出引用局部原则，即如果读取某一个位置，则接下来访问这个位置的概率非常高，尤其是紧随其后的内存位置。 因此，通过缓存整个缓存行，接下来缓存命中的概率会增加。 这比通过主存读入数据快得多（高速缓存典型访问时间是2ns，主存为10ns）。高速缓存通常有4M容量。</p>
+<p><strong>5.在早期计算机中，每个字节的读写直接由CPU处理（即没有DMA）。对于多到程序而言这种组织方式有什么含义？</strong></p>
+<p>多道程序设计的主要原因是在某个程序等待I/O完成时，可以让CPU做一些其他操作。 如果没有DMA，则CPU完全占用I/O，因此通过多道程序设计没有任何收益增加获得（至少在CPU利用率方面）。 无论程序执行多少I/O，CPU都将100％处于忙碌。</p>
+<p><strong>6.与访问I/O设备相关的指令通常是特权指令，也就是说，他们能在内核态执行而在用户态则不行。说明为什么这些指令是特权指令。</strong></p>
+<p>不允许在用户程序中使用的指令为特权指令。如果让用户在自己的程序里直接使用“I/O指令”，那么这个用户可以根据自己的需要启动设备进行输入/输出。这样一来，通过设备所做的输入/输出就可能会丢失信息或产生出错。因此，必须把“I/O指令”规定为是特权指令。判断一条指令是否是特权指令，原则是看这条指令的执行，是否会引起系统工作的冲突或意外。</p>
+<p><strong>特权指令有：</strong>修改程序状态字、设置中断屏蔽、启动设备、执行I/O操作、设置时钟等。<strong>非特权指令有：</strong>算术运算指令、逻辑运算指令、取数存数指令、访管指令等。</p>
+<p><strong>7.系列计算机的思想在20世界60年代由IBM引入System/360大型机。现在这种思想是消亡还是存活？</strong></p>
+<p>依然活着。 例如，英特尔使Core i3，i5和i7 CPU具有各种不同的属性，包括速度和功耗。 所有这些机器的体系结构都是兼容的，仅仅是价格上的不同，这些都是家族思想的本质。</p>
+<p><strong>8.缓慢采用GUI的一个原因是支持它的硬件成本高昂。为了支持25行80列字符的单色文本屏幕，需要多少视频RAM？对于1024*768像素24位色彩位图需要多少视频RAM？</strong></p>
+<ol>
+<li>25*80=2000字节</li>
+<li>1024 <em> 768 </em> 3=2359296字节 （一个字节8位，24位就是3个字节）</li>
+</ol>
+<p><strong>9.在建立一个操作系统时有几个设计目的，例如资源利用、及时性、健壮性等。请列举两个可能相互矛盾的设计目的。</strong></p>
+<p>公平性和实时性。 公平性要求每个进程都以公平的方式分配其资源，没有任何进程获得超过公平份额。 另一方面，实时性需要根据不同进程必须完成执行的时间来分配资源。 实时进程可能会获得不成比例的资源份额。 他们就是互相矛盾的。</p>
+<p><strong>10.内核态和用户态有哪些区别？解释在设计操作系统时存在两种不同的模式有什么帮助。</strong></p>
+<p>在内核态，操作系统具有对所有硬件的完全访问权，可以执行机器能够运行的任何命令。在用户态，只使用机器指令中的一个子集。</p>
+<p>存在两种模式是为了保护计算机，一些危险指令（影响机器的控制）只有操作系统可以执行，防止普通程序滥用其他程序的资源。如间谍软件要想开启摄像头就必须向特权级0的驱动程序请求开启，否则就不允许。</p>
+<p><strong>11.一个255GB的磁盘有65536个柱面，每个磁道有255个扇区，每个扇区有512个字节。这个磁盘有多少盘片和磁头？假设平均寻道时间为11ms，平均旋转延迟为7ms，读取速率为100MB/s，计算从一个扇区读取400KB需要的平均时间。</strong></p>
+<p>设有n个盘片， 255<em>1024^3 (字节) = 2n </em> 65536 <em> 255 </em> 512， n=8</p>
+<p>有8个盘片，16个磁头。</p>
+<p>读取的平均时间：11ms+7ms+400KB/(100MB/s) = 22ms</p>
+<p><strong>12.下面哪个指令只能在内核态使用？</strong></p>
+<p>​           （a）禁止所有的中断。</p>
+<p>​           （b）读日期-时间时钟。</p>
+<p>​    </p>
+<p>​           （c）设置日期-时间时钟。</p>
+<p>​           （d）改变存储器映像。</p>
+<p>（a）（c）（d）</p>
+<p><strong>13.考虑一个有两个CPU的系统，并且每一个CPU有两个线程（超线程）。假设有三个程序P0、P1、P2，分别以运行时间5ms、10ms、20ms开始。运行这些程序需要多少时间？假设这三个程序都是100%限于CPU，在运行时无阻塞，并且一旦设定就不改变CPU。</strong></p>
+<p>这些程序的运行时间因程序的组合的不同而不同，一共有以下 4种： </p>
+<p>​             ( P0,P1) and P2 =&gt; (5ms + 10ms) and 20ms =&gt; 20ms</p>
+<p>​             (P0,P2) and P1 =&gt; (5ms + 20ms) and 10ms =&gt; 25ms </p>
+<p>​             (P1,P2) and P0 =&gt; (10ms + 20ms) and 50ms =&gt; 30ms </p>
+<p>​             (P0,P1,P2) =&gt; (5ms + 10ms + 20ms) =&gt; 35ms</p>
+<p><strong>14.一台计算机有一个四级流水线，每一级都花费相同时间执行其工作，即1ns。这台机器每秒可执行多少条指令？</strong></p>
+<p>从管道中每纳秒出现一条指令，这意味着机器每秒执行10亿条指令。 （无论管道有多少个阶段）</p>
+<p><strong>15.假设一个计算机系统有高速缓存、内存（RAM）以及磁盘，操作系统用虚拟内存。读取缓存中的一个词需要1ns，RAM需要10ns，磁盘需要10ms。如果缓存的命中率是95%，内存的是99%（缓存失效时），读取一个词的平均时间是多少？</strong></p>
+<p>求数学期望，CPU读取顺序是：缓存、内存、磁盘。E（t）=0.95 x 2ns+0.05 x 0.99 x 10ns+0.05 x 0.01 x10ms = 5002.395 ns。</p>
+<p><strong>16.在用户程序进行一个系统调用，以读写磁盘文件时，该程序提供指示说明了所需要的文件、一个指向数据缓冲区的指针以及计数。然后，控制权转给操作系统，它调用相关的驱动程序。假设驱动程序启动磁盘并且直到中断发生才终止。在从磁盘读的情况下，很明显，调用者会被阻塞（因为文件中没有数据）。在向磁盘写时会发生什么情况？需要把调用者阻塞一直等到磁盘传送完成为止吗？</strong></p>
+<p>也许。如果调用者取回控制，并且在最终发生写操作时立即重写数据，将会写入错误的数据。然而，如果驱动程序在返回之前首先复制将数据复制到一个专用的缓冲器，那么调用者可以立即继续执行。另一个可能性是允许调用者继续，并且在缓冲器可以再用时给它一个信号，但是这需要很髙的技巧，而且容易出错。</p>
+<p><strong>17.什么是陷阱指令？在操作系统中解释它的用途。</strong></p>
+<p>TRAP指令，即陷阱指令是CPU的内部事件，是由于系统调用引起处理机中断的指令。在系统调用中，TRAP负责由用户模式转换为内核模式，并将返回地址保存至堆栈中以备后用。</p>
+<p><strong>18.在分时系统中为什么需要进程表？在只有一个进程存在的个人计算机系统中，该进程控制整个机器直到进程结束，这种机器也需要进程表吗？</strong></p>
+<p>进程表是为了存储当前被挂起、甚或是被延迟和阻塞的进程状态。在单一进程的系统中是不需要，因为单一进程从不挂起。</p>
+<p><strong>19.说明有没有理由在一个非空的目录中安装一个文件系统。如果这样做，如何做？</strong></p>
+<p>装配文件系统将使得装配目录中已有的任何文件都不可访问，因此装配点通常都是空的。然而，系统管理人员可能需要将某些位于被装配目录中的非常重要的文件复制到装配点，使得他们在进行设备检查或修理时，可以在紧急事件中的普通路径上找到这些文件。   完成安装操作的典型C语句为 mount(“dev/sdb0”，“/mnt”，0)，第一个参数是USB驱动器0的块特殊文件名称，第二个参数是要被安装在树中的位置，第三个参数说明将要安装的文件系统是可读写的还是只读的。</p>
+<p><strong>20.对于下列系统调用，给出引起失败的条件：fork、exec以及unlink。</strong></p>
+<p>如果进程表中没有空闲的槽（或者没有内存和交换空间），fork 将失败。 如果所给的文件名不存在，或者不是一个有效的可执行文件，exec将失败。如果将要解除链接的文件不存在，或者调用unlink的进程没有权限，则unlink将失败。</p>
+<p><strong>21.下列资源能使用哪种多路复用（时间、空间或两者皆可）：CPU，内存，磁盘，网卡，打印机，键盘以及显示器？</strong></p>
+<p> 时间：CPU，打印机，网卡，键盘，显示器； 空间：内存，磁盘，显示器。</p>
+<p><strong>22.在 count=write（fd，buffer，nbytes）调用中，是否能将函数返回值传递给conut变量而不是nbytes变量？</strong></p>
+<p>count返回实际写入的字节数，nbytes是要求写入的字节数。</p>
+<p>如果fd不正确，调用失败，将返回1。同样，如果磁盘满，调用也失败，要求写入的字节数和实际写入的字节数可能不等。在正确终止时，总是返回nbytes。</p>
+<p><strong>23.有一个文件，其文件描述符是fd，内含下列字节序列：3，1，4，1，5，9，2，6，5，3，5。 有如下系统调用：lseek(fd,3,SEEK_SET); read(fd,&amp;buffer,4); 其中lseek调用寻找文件中的字节3。在读操作完成后，buffer中的内容是什么？</strong></p>
+<p>1，5，9，2。lseek将文件指针移动偏移量3，到索引3处；read从文件指针出开始读四个字节，存储到缓冲区buffer处。</p>
+<p><strong>24.假设一个10MB的文件保存在磁盘同一磁道（磁道号为50）的连续扇区中。磁盘的磁臂此时位于第100号磁道。要想从磁盘上找回这个文件，需要多长时间？假设磁臂从一个柱面移动到下一个柱面需要1ms，保存文件的开始部分的扇区旋转到磁头下需要5ms，并且读速率是200MB/s。</strong>    </p>
+<p> 5ms + 1ms * (100-50) + 10MB/(200MB/s) = 105ms</p>
+<p><strong>25.块特殊文件和字符特殊文件的基本差别是什么？</strong></p>
+<p>提供特殊文件是为了使I/O设备看起来像文件一般，这样I/O设备可以像 系统调用文件那样 被调用进行读写。</p>
+<p>块特殊文件指那些由可随机存取的块组成的设备，如磁盘。块特殊文件包含被编号的块，每一块都可以独立地读取或者写入。而且可以定位于任何块，并且开始读出或写入。</p>
+<p>字符特殊文件用于打印机、调制解调器和其他接收或输出字符流的设备。</p>
+<p>特殊文件保存在/bev目录。</p>
+<p><strong>26.在图1-7的例子中库调用称为read，而系统调用自身称为read，这两者都有相问的名字是正常的吗？ 如果不是，哪一个更重要？</strong></p>
+<p>系统调用实际上并没有名称，除了在文件中这样描述之外。当库例程read陷入内核时，它将系统调用号码放入寄存器或者堆栈中。该号码通常用于一张表的索引。这里确实没有使用任何名称。而另一方面，库例程的名称是十分重要的，因为它将用于程序中。</p>
+<p><strong>27.现代操作系统将进程的地址空间从机器物理内存中分离出来。列举这种设计的两个好处。</strong></p>
+<p>允许可执行程序在不同的运行中加载到机器内存的不同部分。使程序大小可以超过机器内存的大小（虚拟内存）。</p>
+<p><strong>28.对程序员来说，系统调用就像对其他库过程的调用一样。有无必要让程序员了解哪一个库过程导致了系统调用？在什么情况下，为什么？</strong></p>
+<p>就程序逻辑而言，库例程调用哪个系统调用是没有关系的。但是，如果需要考虑性能问题，无需系统调用就可以完成的任务将使程序运行更快。所有的系统调用都会导致用户环境和内核环境的切换开销。更进一步，在多用户系统中，在系统调用完成之前，操作系统可能调度到其他的进程，这将使得调用过程的处理更加迟缓。</p>
+<p><strong>29.图1-23说明有一批UNIX的系统调用没有与之等价的Win32 API。对于所列出的每一个没有Win32等价的调用，若程序员要把一个UNIX程序转换到Windows下运行，会有什么后果？</strong></p>
+<p>Link: Win32程序不能给文件另外一个名称，或者使某个文件出现在多个目录中。同时，试图创建链接可以便于测试，并且在文件上加锁。</p>
+<p>Mount和umount: Wmdows程序不能创建关于标准的路径的假定命名，因为具有多个磁盘驱动器的系统上路径名，其驱动器部分是不同的。</p>
+<p>Chmod: Windows程序员不得不假定所有的用户都能访问每个文件。</p>
+<p>Kill: Windows程序员不能kill行为失常的程序。</p>
+<p><strong>30.可移植的操作系统是从一个系统体系结构移动到另一个系统体系结构而不需要任何修改的操作系统。请解释为什么建立一个完全可移植性的操作系统是不可行的。描述一下在设计一个高度可移植的操作系统时你设计的两个高级层是什么样的。</strong></p>
+<p>每一个系统体系结构都有它自己可以执行的一套指令。因此，奔腾不能执行SPARC程序或者SPARC无法执行奔腾程序。另外，不同的架构使用不同的总线架构（如VME总线，ISA，PCI，MCA，SBU，…）以及CPU的字长（通常是32或64位）。由于硬件上的这些差异，建立一个完全可移植的操作系统是不可行的。一个高度可移植的操作系统将包括两个高级层——一个机器相关层和一个机器独立层。机器相关层屏蔽硬件的细节，必须为每一个架构单独实现，该层提供了一个统一的接口。机器独立层只需要实现一次。为了实现高度可移植，机器相关层应尽可能小。</p>
+<p><strong>31.请解释在建立基于微内核的操作系统时策略与机制分离带来的好处。</strong></p>
+<p>微内核思想：为了实现高可靠性，将操作系统划分成小的、良好定义的模块，只有其中一个模块–微内核–运行在内核态，其余模块由于功能相对弱些，则作为普通用户进程运行。</p>
+<p>以进程调度为例，调度算法是，对每一个进程赋予一个优先级，并让内核执行具有最高优先级的进程。 其中机制（在内核中）就是寻找最高优先级的进程并运行之；策略（赋予进程优先级）可由用户态中的进程完成。</p>
+<p>策略与机制分离，使系统内核变得更小。</p>
+<p><strong>32.虚拟机由于很多因素而十分流行，然而它们也有一些缺点，给出一个缺点。</strong></p>
+<p>虚拟机建立在主机上，也是文件，很容易被破坏；增加了内存的使用和处理器的间接费用。</p>
+<p><strong>33.下面是单位转换的练习：</strong> </p>
+<p>​        (a) 一微年是多少秒？                                                                     365 x 10^(-6) x 24 x 60 x 60 =  31.536 s</p>
+<p>​        (b) 微米常称为micron。那么megamicron是多长？                  10^6 x 10^(-6) = 1 m</p>
+<p>​        (c) 1PB存储器中有多少字节？                                                       2^(50) bytes</p>
+<p>​        (d) 地球的质量是6000 yottagram，换算成kilogram 是多少？ 6000 x 10^24 / 10^3 = 6 x 10^24 kg</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/现代操作系统/" rel="tag"># 现代操作系统</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/13/UNIX网络编程-环境搭建/" rel="next" title="UNIX网络编程-环境搭建">
+                <i class="fa fa-chevron-left"></i> UNIX网络编程-环境搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/15/UNIX网络编程-第一章习题笔记/" rel="prev" title="UNIX网络编程-第一章习题笔记">
+                UNIX网络编程-第一章习题笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/tou1.jpg" alt="demontip">
+            
+              <p class="site-author-name" itemprop="name">demontip</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/demontip" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:slumga96@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">demontip</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("0zaTtU7DOf8lRoenguiTX99B-gzGzoHsz", "JrHh23VU42P2dJcTrvLIBpPU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
