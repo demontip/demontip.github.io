@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3e13b0;
+  background: #59ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2995,6 +2995,9 @@ code {
 }
 .sidebar-nav li:hover {
   color: #0c0b0b;
+}
+.sidebar {
+  background: url("/images/cebianlan.jpg");
 }
 .sidebar-toggle {
   background: #649ab6;
