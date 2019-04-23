@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="广度优先遍历 定义广度优先搜索（BFS）是最基本的一种图搜索算法，也是很多图算法的原型，如Prim的最小生成树算法和Dijkstra的单源最短路径算法都用到了BFS的思想。 BFS算法以源节点s开始，计算从源节点到每个可到达的节点的距离（最少的边数），同时生成一棵“广度优先搜索树”。这棵树以源节点s为根节点，包含所有可以从s可以到达的节点。  在建树的过程中，始终将已发现节点和未发现节点之间的边界">
+<meta name="description" content="广度优先遍历 定义广度优先搜索（BFS）是最基本的一种图搜索算法，也是很多图算法的原型，如Prim的最小生成树算法和Dijkstra的单源最短路径算法都用到了BFS的思想。 BFS算法以源节点s开始，计算从源节点到每个可到达的节点的距离（最少的边数），同时生成一棵“广度优先搜索树”。这棵树以源节点s为根节点，包含所有可以从s可以到达的节点。  在建树的过程中，始终将已发现节点和未发现节点之间的边">
 <meta name="keywords" content="算法与数据结构,c++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图 广度优先+深度优先 递归+非递归实现">
 <meta property="og:url" content="http://yoursite.com/2019/04/23/图-广度优先-深度优先-递归-非递归实现/index.html">
 <meta property="og:site_name" content="demontip">
-<meta property="og:description" content="广度优先遍历 定义广度优先搜索（BFS）是最基本的一种图搜索算法，也是很多图算法的原型，如Prim的最小生成树算法和Dijkstra的单源最短路径算法都用到了BFS的思想。 BFS算法以源节点s开始，计算从源节点到每个可到达的节点的距离（最少的边数），同时生成一棵“广度优先搜索树”。这棵树以源节点s为根节点，包含所有可以从s可以到达的节点。  在建树的过程中，始终将已发现节点和未发现节点之间的边界">
+<meta property="og:description" content="广度优先遍历 定义广度优先搜索（BFS）是最基本的一种图搜索算法，也是很多图算法的原型，如Prim的最小生成树算法和Dijkstra的单源最短路径算法都用到了BFS的思想。 BFS算法以源节点s开始，计算从源节点到每个可到达的节点的距离（最少的边数），同时生成一棵“广度优先搜索树”。这棵树以源节点s为根节点，包含所有可以从s可以到达的节点。  在建树的过程中，始终将已发现节点和未发现节点之间的边">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/04/23/图-广度优先-深度优先-递归-非递归实现/图-广度优先-深度优先-递归-非递归实现/图%20广度优先+深度优先%20递归+非递归实现%201.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/23/图-广度优先-深度优先-递归-非递归实现/图-广度优先-深度优先-递归-非递归实现/图%20广度优先+深度优先%20递归+非递归实现%202.PNG">
 <meta property="og:image" content="http://yoursite.com/2019/04/23/图-广度优先-深度优先-递归-非递归实现/图-广度优先-深度优先-递归-非递归实现/图%20广度优先+深度优先%20递归+非递归实现%203.PNG">
-<meta property="og:updated_time" content="2019-04-23T04:23:00.016Z">
+<meta property="og:updated_time" content="2019-04-23T04:24:36.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图 广度优先+深度优先 递归+非递归实现">
-<meta name="twitter:description" content="广度优先遍历 定义广度优先搜索（BFS）是最基本的一种图搜索算法，也是很多图算法的原型，如Prim的最小生成树算法和Dijkstra的单源最短路径算法都用到了BFS的思想。 BFS算法以源节点s开始，计算从源节点到每个可到达的节点的距离（最少的边数），同时生成一棵“广度优先搜索树”。这棵树以源节点s为根节点，包含所有可以从s可以到达的节点。  在建树的过程中，始终将已发现节点和未发现节点之间的边界">
+<meta name="twitter:description" content="广度优先遍历 定义广度优先搜索（BFS）是最基本的一种图搜索算法，也是很多图算法的原型，如Prim的最小生成树算法和Dijkstra的单源最短路径算法都用到了BFS的思想。 BFS算法以源节点s开始，计算从源节点到每个可到达的节点的距离（最少的边数），同时生成一棵“广度优先搜索树”。这棵树以源节点s为根节点，包含所有可以从s可以到达的节点。  在建树的过程中，始终将已发现节点和未发现节点之间的边">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/23/图-广度优先-深度优先-递归-非递归实现/图-广度优先-深度优先-递归-非递归实现/图%20广度优先+深度优先%20递归+非递归实现%201.jpg">
 
 
@@ -367,7 +367,8 @@
       
 
       
-        <h2 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h2><hr>
+        
+<h2 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h2><hr>
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>广度优先搜索（BFS）是最基本的一种图搜索算法，也是很多图算法的原型，如Prim的最小生成树算法和Dijkstra的单源最短路径算法都用到了BFS的思想。</p>
 <p>BFS算法以源节点s开始，计算从源节点到每个可到达的节点的距离（最少的边数），同时生成一棵“广度优先搜索树”。这棵树以源节点s为根节点，包含所有可以从s可以到达的节点。 </p>
 <p>在建树的过程中，始终将已发现节点和未发现节点之间的边界，沿其广度方向向外扩展。也就是说，在发现所有距离源节点s为k（k代表经过的边数）的节点后，再发现距离源节点k+1的节点。</p>
