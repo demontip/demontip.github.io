@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="demontip">
 <meta property="og:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。 原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能破">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-27T12:10:35.287Z">
+<meta property="og:updated_time" content="2019-04-27T12:46:33.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式：从ACID到CAP&#x2F;BASE">
 <meta name="twitter:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。 原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能破">
@@ -379,7 +379,7 @@
 <h4 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h4><p>隔离性指在并发环境里，并发的事务是相互隔离的，一个事务的执行不能被其他事务干扰。</p>
 <p>标准SQL规范中定义了4个事务隔离级别：</p>
 <ul>
-<li><strong>未授权读取（Read Uncommitted）</strong><br>可读取其他事务并未提交的数据。</li>
+<li><strong>未授权读取（Read Uncommitted）</strong> 可读取其他事务并未提交的数据。</li>
 <li><strong>授权读取（Read Committed）</strong>  只能读取被提交的数据。</li>
 <li><strong>可重复读取（Repeatable Read）</strong></li>
 <li><strong>串行化（Serializable）</strong></li>
