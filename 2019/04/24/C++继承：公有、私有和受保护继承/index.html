@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="C++作为面向对象编程，核心思想就是数据抽象、继承和动态绑定。 继承，即定义相似的类型并对其相似关系建模，这些相似的类型联系在一起构成一种层次关系，层次关系的根部有一个基类，其他类直接或间接从基类继承而来，这些类称作派生类。 基类定义层次关系中所有类共同拥有的成员，派生类定义各自特有的成员。 继承分为三种：公有继承、私有继承、受保护继承 1234class Base&amp;#123;&amp;#125;;">
+<meta name="description" content="C++作为面向对象编程，核心思想就是数据抽象、继承和动态绑定。 继承，即定义相似的类型并对其相似关系建模，这些相似的类型联系在一起构成一种层次关系，层次关系的根部有一个基类，其他类直接或间接从基类继承而来，这些类称作派生类。 基类定义层次关系中所有类共同拥有的成员，派生类定义各自特有的成员。 继承分为三种：公有继承、私有继承、受保护继承1234class Base&amp;#123;&amp;#125;;">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++继承：公有、私有和受保护继承">
 <meta property="og:url" content="http://yoursite.com/2019/04/24/C++继承：公有、私有和受保护继承/index.html">
 <meta property="og:site_name" content="demontip">
-<meta property="og:description" content="C++作为面向对象编程，核心思想就是数据抽象、继承和动态绑定。 继承，即定义相似的类型并对其相似关系建模，这些相似的类型联系在一起构成一种层次关系，层次关系的根部有一个基类，其他类直接或间接从基类继承而来，这些类称作派生类。 基类定义层次关系中所有类共同拥有的成员，派生类定义各自特有的成员。 继承分为三种：公有继承、私有继承、受保护继承 1234class Base&amp;#123;&amp;#125;;">
+<meta property="og:description" content="C++作为面向对象编程，核心思想就是数据抽象、继承和动态绑定。 继承，即定义相似的类型并对其相似关系建模，这些相似的类型联系在一起构成一种层次关系，层次关系的根部有一个基类，其他类直接或间接从基类继承而来，这些类称作派生类。 基类定义层次关系中所有类共同拥有的成员，派生类定义各自特有的成员。 继承分为三种：公有继承、私有继承、受保护继承1234class Base&amp;#123;&amp;#125;;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-26T02:41:00.507Z">
+<meta property="og:updated_time" content="2019-04-27T14:10:03.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++继承：公有、私有和受保护继承">
-<meta name="twitter:description" content="C++作为面向对象编程，核心思想就是数据抽象、继承和动态绑定。 继承，即定义相似的类型并对其相似关系建模，这些相似的类型联系在一起构成一种层次关系，层次关系的根部有一个基类，其他类直接或间接从基类继承而来，这些类称作派生类。 基类定义层次关系中所有类共同拥有的成员，派生类定义各自特有的成员。 继承分为三种：公有继承、私有继承、受保护继承 1234class Base&amp;#123;&amp;#125;;">
+<meta name="twitter:description" content="C++作为面向对象编程，核心思想就是数据抽象、继承和动态绑定。 继承，即定义相似的类型并对其相似关系建模，这些相似的类型联系在一起构成一种层次关系，层次关系的根部有一个基类，其他类直接或间接从基类继承而来，这些类称作派生类。 基类定义层次关系中所有类共同拥有的成员，派生类定义各自特有的成员。 继承分为三种：公有继承、私有继承、受保护继承1234class Base&amp;#123;&amp;#125;;">
 
 
 
@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  791
+                  790
                 </span>
               
 
@@ -374,10 +374,8 @@
       
         <p>C++作为面向对象编程，核心思想就是<strong>数据抽象</strong>、<strong>继承</strong>和<strong>动态绑定</strong>。</p>
 <p><strong>继承</strong>，即定义相似的类型并对其相似关系建模，这些相似的类型联系在一起构成一种层次关系，层次关系的根部有一个<strong>基类</strong>，其他类直接或间接从基类继承而来，这些类称作<strong>派生类</strong>。 <strong>基类</strong>定义层次关系中所有类共同拥有的成员，<strong>派生类</strong>定义各自特有的成员。</p>
-<p>继承分为三种：<strong>公有继承</strong>、<strong>私有继承</strong>、<strong>受保护继承</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span>&#125;;                         <span class="comment">//基类</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Pub_Derv</span> :</span> <span class="keyword">public</span> Base&#123;&#125;;      <span class="comment">//Pub_Derv公有继承Base</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Pro_Derv</span> :</span> <span class="keyword">protected</span> Base&#123;&#125;;   <span class="comment">//Pro_Derv受保护继承Base</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Priv_Derv</span> :</span> <span class="keyword">private</span> Base&#123;&#125;;    <span class="comment">//Priv_Derv私有继承Base</span></span><br></pre></td></tr></table></figure>
-<p><strong>protected关键字的意义</strong></p>
-<p>当用protected声明一个类成员时，是希望该成员能与派生类分享，但又不被其他公共访问成员使用。protected可以看做是public和private的中和：</p>
+<p>继承分为三种：<strong>公有继承</strong>、<strong>私有继承</strong>、<strong>受保护继承</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span>&#125;;                         <span class="comment">//基类</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Pub_Derv</span> :</span> <span class="keyword">public</span> Base&#123;&#125;;      <span class="comment">//Pub_Derv公有继承Base</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Pro_Derv</span> :</span> <span class="keyword">protected</span> Base&#123;&#125;;   <span class="comment">//Pro_Derv受保护继承Base</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Priv_Derv</span> :</span> <span class="keyword">private</span> Base&#123;&#125;;    <span class="comment">//Priv_Derv私有继承Base</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>protected关键字的意义</strong><br>当用protected声明一个类成员时，是希望该成员能与派生类分享，但又不被其他公共访问成员使用。protected可以看做是public和private的中和：</p>
 <ul>
 <li>和private成员类似，protected成员对于<strong>类的用户</strong>来说不可访问。</li>
 <li>和public成员类似，protected成员对于派生类的成员和友元来说可访问。</li>
