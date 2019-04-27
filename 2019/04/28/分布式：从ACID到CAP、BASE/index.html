@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="UNIX网络编程,">
+  <meta name="keywords" content="分布式,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="UNIX网络编程 这本书作者提供了非常详细的源代码示例，但是下载好代码后需要我们自己搭建运行环境，下面我就实际操作一遍 环境的搭建。 源代码的下载地址www.unpbook.com , 找到Source Code，下载下来得到 unpv13e.tar.gz，解压。 搭建过程打开unpv13e文件夹，找到readme文件，按如下步骤进行操作。1234567891011121314151617./co">
-<meta name="keywords" content="UNIX网络编程">
+<meta name="description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。 原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能破">
+<meta name="keywords" content="分布式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UNIX网络编程-环境搭建">
-<meta property="og:url" content="http://yoursite.com/2019/04/13/UNIX网络编程-环境搭建/index.html">
+<meta property="og:title" content="分布式：从ACID到CAP&#x2F;BASE">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/分布式：从ACID到CAP、BASE/index.html">
 <meta property="og:site_name" content="demontip">
-<meta property="og:description" content="UNIX网络编程 这本书作者提供了非常详细的源代码示例，但是下载好代码后需要我们自己搭建运行环境，下面我就实际操作一遍 环境的搭建。 源代码的下载地址www.unpbook.com , 找到Source Code，下载下来得到 unpv13e.tar.gz，解压。 搭建过程打开unpv13e文件夹，找到readme文件，按如下步骤进行操作。1234567891011121314151617./co">
+<meta property="og:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。 原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能破">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-15T12:27:23.238Z">
+<meta property="og:updated_time" content="2019-04-27T12:10:35.287Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UNIX网络编程-环境搭建">
-<meta name="twitter:description" content="UNIX网络编程 这本书作者提供了非常详细的源代码示例，但是下载好代码后需要我们自己搭建运行环境，下面我就实际操作一遍 环境的搭建。 源代码的下载地址www.unpbook.com , 找到Source Code，下载下来得到 unpv13e.tar.gz，解压。 搭建过程打开unpv13e文件夹，找到readme文件，按如下步骤进行操作。1234567891011121314151617./co">
+<meta name="twitter:title" content="分布式：从ACID到CAP&#x2F;BASE">
+<meta name="twitter:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。 原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能破">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/13/UNIX网络编程-环境搭建/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/28/分布式：从ACID到CAP、BASE/">
 
 
 
 
 
-  <title>UNIX网络编程-环境搭建 | demontip</title>
+  <title>分布式：从ACID到CAP/BASE | demontip</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/UNIX网络编程-环境搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/分布式：从ACID到CAP、BASE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="demontip">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">UNIX网络编程-环境搭建</h1>
+          <h1 class="post-title" itemprop="name headline">分布式：从ACID到CAP/BASE</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-13T11:31:45+08:00">
-                2019-04-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-28T18:02:34+08:00">
+                2019-04-28
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UNIX网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">UNIX网络编程</span>
+                  <a href="/categories/分布式/" itemprop="url" rel="index">
+                    <span itemprop="name">分布式</span>
                   </a>
                 </span>
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2019/04/13/UNIX网络编程-环境搭建/" class="leancloud_visitors" data-flag-title="UNIX网络编程-环境搭建">
+             <span id="/2019/04/28/分布式：从ACID到CAP、BASE/" class="leancloud_visitors" data-flag-title="分布式：从ACID到CAP/BASE">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  529
+                  1.6k
                 </span>
               
 
@@ -372,33 +372,95 @@
       
 
       
-        <p>UNIX网络编程 这本书作者提供了非常详细的源代码示例，但是下载好代码后需要我们自己搭建运行环境，下面我就实际操作一遍 环境的搭建。</p>
-<h4 id="源代码的下载地址"><a href="#源代码的下载地址" class="headerlink" title="源代码的下载地址"></a>源代码的下载地址</h4><p><a href="http://www.unpbook.com" target="_blank" rel="noopener">www.unpbook.com</a> , 找到Source Code，下载下来得到 unpv13e.tar.gz，解压。</p>
-<h4 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h4><p>打开unpv13e文件夹，找到readme文件，按如下步骤进行操作。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">./configure    # try to figure out all implementation differences</span><br><span class="line"></span><br><span class="line">cd lib         # build the basic library that all programs need</span><br><span class="line">make           # use "gmake" everywhere on BSD/OS systems</span><br><span class="line"></span><br><span class="line">cd ../libfree  # continue building the basic library</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">cd ../libroute # only if your system supports 4.4BSD style routing sockets</span><br><span class="line">make           # only if your system supports 4.4BSD style routing sockets</span><br><span class="line"></span><br><span class="line">cd ../libxti   # only if your system supports XTI</span><br><span class="line">make           # only if your system supports XTI</span><br><span class="line"></span><br><span class="line">cd ../intro    # build and test a basic client program</span><br><span class="line">make daytimetcpcli</span><br><span class="line">./daytimetcpcli 127.0.0.1</span><br></pre></td></tr></table></figure></p>
-<h4 id="1-打开终端，cd到unpv13e文件夹下，依次执行下面命令"><a href="#1-打开终端，cd到unpv13e文件夹下，依次执行下面命令" class="headerlink" title="1. 打开终端，cd到unpv13e文件夹下，依次执行下面命令"></a>1. 打开终端，cd到unpv13e文件夹下，依次执行下面命令</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd ./unpv13e</span><br><span class="line">./configure      </span><br><span class="line">cd lib</span><br><span class="line">make       <span class="comment">//遇到warning忽略即可</span></span><br><span class="line">cd ../libfree</span><br><span class="line">make       <span class="comment">//这里可能会出现错误如下</span></span><br><span class="line"></span><br><span class="line">inet_ntop.c: In function ‘inet_ntop’: </span><br><span class="line">inet_ntop.c:<span class="number">60</span>:<span class="number">9</span>: error: argument ‘size’ doesn’t match prototype</span><br></pre></td></tr></table></figure>
-<p><strong>这时我们到unpv13e/libfree下面，打开inet_ntop.c，将第60行的 size_t size 改成 socklen_t size，重新执行make。</strong></p>
-<p><strong><code>这时可能还会有如下警告</code>，忽略即可。</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">inet_ntop.c:<span class="number">152</span>:<span class="number">23</span>: warning: ‘best.len’ may be used uninitialized in <span class="keyword">this</span> function [-Wmaybe-uninitialized]</span><br><span class="line">   <span class="keyword">if</span> (best.base == <span class="number">-1</span> || cur.len &gt; best.len)</span><br><span class="line">                       ^</span><br><span class="line">inet_ntop.c:<span class="number">123</span>:<span class="number">28</span>: note: ‘best.len’ was declared here</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> &#123;</span> <span class="keyword">int</span> base, len; &#125; best, cur;</span><br></pre></td></tr></table></figure>
-<p><strong>继续在终端执行命令</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../libgai</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-<h4 id="2-安装库函数"><a href="#2-安装库函数" class="headerlink" title="2.安装库函数"></a>2.安装库函数</h4><p><strong>修改unp.h文件</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include '../config,h' 改为 #include ‘config.h’</span><br></pre></td></tr></table></figure>
-<p><strong>拷贝文件到usr</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo cp config.h /usr/local/include</span><br><span class="line">sudo cp lib/unp.h /usr/local/include</span><br><span class="line">sudo cp libnup.a /usr/local/lib</span><br></pre></td></tr></table></figure>
-<h4 id="3-测试"><a href="#3-测试" class="headerlink" title="3.测试"></a>3.测试</h4><p><strong>以intro/daytimetcpcli.c为例</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ./intro</span><br><span class="line">gcc daytimetcpcli.c -o daytimetcocli -lunp   <span class="comment">//最后的-l命令是指定程序需要链接的库，在这里需要链接unp.h。</span></span><br><span class="line">./daytimetcpcli <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
-<p><strong>这时可能会出现错误</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect error:Connection refused</span><br></pre></td></tr></table></figure>
-<p><strong>这时执行以下步骤：</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xinetd</span><br></pre></td></tr></table></figure>
-<p><strong>然后进到/etc/xinet.d，打开daytime文件，将文件中两个disable中的yes改为no。</strong></p>
-<p><strong>重启xinted.d</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service xinetd restart</span><br></pre></td></tr></table></figure>
-<p><strong>再次测试</strong>：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./daytimetcpcli <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
-<p><strong>得到：</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">13</span> APR <span class="number">2019</span> <span class="number">12</span>:<span class="number">00</span>:<span class="number">21</span> CST</span><br></pre></td></tr></table></figure>
-<p><strong>至此，UNIX网络编程 的编译环境搭建成功！</strong></p>
+        <h1 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h1><hr>
+<p>事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。</p>
+<h4 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h4><p>原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行</p>
+<h4 id="一致性（Consistency）"><a href="#一致性（Consistency）" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h4><p>一致性指事务的执行不能破坏数据库数据的完整性和一致性。事务执行的结果必须是使数据库从一个一致性状态转变到另一个一致性状态。比如一个转账系统中，A向B转了100块钱，不可能出现A的钱扣了而B没收到钱。</p>
+<h4 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h4><p>隔离性指在并发环境里，并发的事务是相互隔离的，一个事务的执行不能被其他事务干扰。</p>
+<p>标准SQL规范中定义了4个事务隔离级别：</p>
+<ul>
+<li><strong>未授权读取（Read Uncommitted）</strong><br>可读取其他事务并未提交的数据。</li>
+<li><strong>授权读取（Read Committed）</strong>  只能读取被提交的数据。</li>
+<li><strong>可重复读取（Repeatable Read）</strong></li>
+<li><strong>串行化（Serializable）</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>未授权读取</td>
+<td>存在</td>
+<td>不可以</td>
+<td>存在</td>
+</tr>
+<tr>
+<td>授权读取</td>
+<td>不存在</td>
+<td>不可以</td>
+<td>存在</td>
+</tr>
+<tr>
+<td>可重复读取</td>
+<td>不存在</td>
+<td>可以</td>
+<td>存在</td>
+</tr>
+<tr>
+<td>串行化</td>
+<td>不存在</td>
+<td>可以</td>
+<td>不存在</td>
+</tr>
+</tbody>
+</table>
+<p>其中，</p>
+<p><strong>脏读：</strong> 事务A在执行阶段，会将某项数据值从1开始，做加1操作直到变成10之后进行事务提交，脏读是事务B可以读到A操作过程的中间值2.3…9 ，只发生在未授权读取。</p>
+<p><strong>可重复读：</strong> 事务A将数据项从1加到10，事务C将数据项从10加到20，事务B在前后两次读取时可能会读到1、10、20。</p>
+<p><strong>幻读：</strong>事务B第一次读完一张表后，事务A在表中插入/删除了一行，事务B再次读表发现行数不一致。</p>
+<h4 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h4><p>持久性指一个事务一旦提交，它对数据库中对应数据的状态变更应该是永久性的。</p>
+<h1 id="CAP-BASE"><a href="#CAP-BASE" class="headerlink" title="CAP/BASE"></a>CAP/BASE</h1><hr>
+<p>分布式系统中会出现分布式事务，即事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于分布式系统的不同节点之上。一个分布式事务可以看成是由多个位于不同节点的子事务组成。要实现一套严格满足ACID特性的分布式事务是很复杂的，必会在可用性和严格一致性之间出现冲突，为解决这一问题，出现了CAP和BASE的分布式系统经典理论。</p>
+<h2 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h2><p>一个分布式系统不可能同时满足一致性、可用性和分区容错性这三个基本要求，最多只能满足其中两个。</p>
+<h4 id="一致性（Consistency）-1"><a href="#一致性（Consistency）-1" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h4><p>一致性指数据在多个副本之间是否能够保持一致的特性。也就是对一个节点数据项进行了更新，其他节点的数据也要得到更新。</p>
+<h4 id="可用性（Availability）"><a href="#可用性（Availability）" class="headerlink" title="可用性（Availability）"></a>可用性（Availability）</h4><p>可用性指系统提供的服务必须一直处于可用状态，对用户的每一个请求总是能够在有限时间内返回结果。</p>
+<p>“有限时间”指：对于用户的一个操作请求，系统必须在指定时间内返回对应的处理结果。</p>
+<p>“返回结果”指：系统在完成对用户请求的处理后，返回一个正常的响应结果，即成功or失败，而不是让用户干感到困惑的结果。</p>
+<h4 id="分区容错性（Partition-tolerance）"><a href="#分区容错性（Partition-tolerance）" class="headerlink" title="分区容错性（Partition tolerance）"></a>分区容错性（Partition tolerance）</h4><p>分区容错性约束了分布式系统具有如下特性：分布式系统在遇到任何网络分区故障时，仍然可以保证对外提供满足一致性和可用性的服务。</p>
+<p>对于一个分布式系统，分区容错性是最基本的要求了。因为作为分布式系统，其组件必然会被部署到不同节点，那么肯定会有网络分区，伴随而来的分区容错性也就是必然要面对和解决的一个问题。</p>
+<table>
+<thead>
+<tr>
+<th>放弃CAP定理</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>放弃P</td>
+<td>最简单的方法是把所有的数据都放到一个分布式节点上，但这样也意味着放弃了可扩展性。</td>
+</tr>
+<tr>
+<td>放弃A</td>
+<td>一旦出现网路故障，受影响的服务需要等待一段时间，在此期间系统无法对外提供服务。</td>
+</tr>
+<tr>
+<td>放弃C</td>
+<td>指放弃数据的强一致性，而保留最终一致性，即承诺数据最终一定会达到一致的状态。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="BASE"><a href="#BASE" class="headerlink" title="BASE"></a>BASE</h2><p>BASE是Basically Available（基本可用）、Soft state（软状态）和Eventually consistent（最终一致性）的简称。BASE是对CAP中一致性和可用性权衡的结果，其核心思想是既然做不到强一致性（Strong consistency），但可以采取适当方式使系统达到最终一致性（Eventual consistency）。</p>
+<h4 id="基本可用（Basically-Available）"><a href="#基本可用（Basically-Available）" class="headerlink" title="基本可用（Basically Available）"></a>基本可用（Basically Available）</h4><p>基本可用是指分布式系统在出现不可预知故障时，允许损失部分可用性。如响应时间上的损失，功能上的损失。</p>
+<h4 id="弱状态（Soft-state）"><a href="#弱状态（Soft-state）" class="headerlink" title="弱状态（Soft state）"></a>弱状态（Soft state）</h4><p>弱状态指允许系统中的数据存在中间状态，并认为中间状态不影响系统的整体可用性，即允许在不同节点的数据副本之间进行数据同步时存在延时。</p>
+<h4 id="最终一致性（Eventually-consistent）"><a href="#最终一致性（Eventually-consistent）" class="headerlink" title="最终一致性（Eventually consistent）"></a>最终一致性（Eventually consistent）</h4><p>最终一致性强调系统中的所有数据副本，在经过一段时间的同步后，最终能够到达一个一致的状态。</p>
+<p>总的来说，BASE理论面向的是大型高可用可扩展的分布式系统，和传统事务的ACID特性是相反的，它不同于ACID的强一致性，而是通过牺牲强一致性来获得可用性，并允许数据在一段时间内不一致，但最终达到一致状态。同时，在实际的分布式场景中，不同业务单元和组件对数据一致性的要求不同，所以在具体的分布式系统架构设计过程中，ACID特性与BASE理论往往又会结合在一起使用。</p>
 
       
     </div>
@@ -416,7 +478,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/UNIX网络编程/" rel="tag"># UNIX网络编程</a>
+            <a href="/tags/分布式/" rel="tag"># 分布式</a>
           
         </div>
       
@@ -429,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/09/用C++设计不能被继承的类/" rel="next" title="用C++设计一个不能被继承的类">
-                <i class="fa fa-chevron-left"></i> 用C++设计一个不能被继承的类
+              <a href="/2019/04/26/现代操作系统 - 进程与线程/" rel="next" title="现代操作系统 - 进程与线程">
+                <i class="fa fa-chevron-left"></i> 现代操作系统 - 进程与线程
               </a>
             
           </div>
@@ -438,10 +500,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/15/UNIX网络编程-第一章习题笔记/" rel="prev" title="UNIX网络编程-第一章习题笔记">
-                UNIX网络编程-第一章习题笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -591,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码的下载地址"><span class="nav-number">1.</span> <span class="nav-text">源代码的下载地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搭建过程"><span class="nav-number">2.</span> <span class="nav-text">搭建过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-打开终端，cd到unpv13e文件夹下，依次执行下面命令"><span class="nav-number">3.</span> <span class="nav-text">1. 打开终端，cd到unpv13e文件夹下，依次执行下面命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-安装库函数"><span class="nav-number">4.</span> <span class="nav-text">2.安装库函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-测试"><span class="nav-number">5.</span> <span class="nav-text">3.测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ACID"><span class="nav-number">1.</span> <span class="nav-text">ACID</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原子性（Atomicity）"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">原子性（Atomicity）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一致性（Consistency）"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">一致性（Consistency）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隔离性（Isolation）"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">隔离性（Isolation）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#持久性（Durability）"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">持久性（Durability）</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#CAP-BASE"><span class="nav-number">2.</span> <span class="nav-text">CAP/BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CAP"><span class="nav-number">2.1.</span> <span class="nav-text">CAP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一致性（Consistency）-1"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">一致性（Consistency）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可用性（Availability）"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">可用性（Availability）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分区容错性（Partition-tolerance）"><span class="nav-number">2.1.0.3.</span> <span class="nav-text">分区容错性（Partition tolerance）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BASE"><span class="nav-number">2.2.</span> <span class="nav-text">BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本可用（Basically-Available）"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">基本可用（Basically Available）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弱状态（Soft-state）"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">弱状态（Soft state）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最终一致性（Eventually-consistent）"><span class="nav-number">2.2.0.3.</span> <span class="nav-text">最终一致性（Eventually consistent）</span></a></li></ol></li></div>
             
 
           </div>
