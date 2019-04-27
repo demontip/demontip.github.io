@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。  原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能">
+<meta name="description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。  原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部执行/全部不执行。 一致性（Consistency）一致性指事务的执行不能破">
 <meta name="keywords" content="分布式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式：从ACID到CAP&#x2F;BASE">
 <meta property="og:url" content="http://yoursite.com/2019/04/28/分布式：从ACID到CAP、BASE/index.html">
 <meta property="og:site_name" content="demontip">
-<meta property="og:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。  原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能">
+<meta property="og:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。  原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部执行/全部不执行。 一致性（Consistency）一致性指事务的执行不能破">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-27T14:19:55.953Z">
+<meta property="og:updated_time" content="2019-04-27T14:24:01.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式：从ACID到CAP&#x2F;BASE">
-<meta name="twitter:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。  原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能">
+<meta name="twitter:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。  原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部执行/全部不执行。 一致性（Consistency）一致性指事务的执行不能破">
 
 
 
@@ -375,7 +375,7 @@
         <h3 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h3><hr>
 <p>事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。</p>
 <ul>
-<li><strong>原子性（Atomicity）</strong><br>原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行</li>
+<li><strong>原子性（Atomicity）</strong><br>原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部执行/全部不执行。</li>
 <li><strong>一致性（Consistency）</strong><br>一致性指事务的执行不能破坏数据库数据的完整性和一致性。事务执行的结果必须是使数据库从一个一致性状态转变到另一个一致性状态。比如转账系统中，A向B转了100块钱，不可能出现A的钱扣了而B没收到钱。</li>
 <li><strong>隔离性（Isolation）</strong><br>隔离性指在并发环境里，并发的事务是相互隔离的，一个事务的执行不能被其他事务干扰。</li>
 <li><strong>持久性（Durability）</strong><br>持久性指一个事务一旦提交，它对数据库中对应数据的状态变更应该是永久性的。</li>
@@ -422,8 +422,8 @@
 <p>分布式系统中会出现分布式事务，即事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于分布式系统的不同节点之上。一个分布式事务可以看成是由多个位于不同节点的子事务组成。要实现一套严格满足ACID特性的分布式事务是很复杂的，必会在可用性和严格一致性之间出现冲突，为解决这一问题，出现了CAP和BASE的分布式系统经典理论。</p>
 <h4 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h4><p>一个分布式系统不可能同时满足一致性、可用性和分区容错性这三个基本要求，最多只能满足其中两个。</p>
 <ul>
-<li><strong>一致性（Consistency）</strong><br>一致性指数据在多个副本之间是否能够保持一致的特性。也就是对一个节点数据项进行了更新，其他节点的数据也要得到更新。</li>
-<li><strong>可用性（Availability）</strong><br>可用性指系统提供的服务必须一直处于可用状态，对用户的每一个请求总是能够在有限时间内返回结果。<br>“有限时间”指：对于用户的一个操作请求，系统必须在指定时间内返回对应的处理结果。<br>“返回结果”指：系统在完成对用户请求的处理后，返回一个正常的响应结果，即成功or失败，而不是让用户干感到困惑的结果。</li>
+<li><strong>一致性（Consistency）</strong><br>一致性指数据在多个副本之间是否能够保持一致的特性。当对一个节点数据项进行了更新，其他节点的数据也要得到更新。</li>
+<li><strong>可用性（Availability）</strong><br>可用性指系统提供的服务必须一直处于可用状态，对用户的每一个请求总是能够在有限时间内返回结果。<br>“有限时间”指：对于用户的一个操作请求，系统必须在指定时间内返回对应的处理结果。<br>“返回结果”指：系统在完成对用户请求的处理后返回一个正常的响应结果，成功or失败，而不是让用户干感到困惑的结果。</li>
 <li><strong>分区容错性（Partition tolerance）</strong><br>分区容错性约束了分布式系统具有如下特性：分布式系统在遇到任何网络分区故障时，仍然可以保证对外提供满足一致性和可用性的服务。<br>对于一个分布式系统，分区容错性是最基本的要求了。因为作为分布式系统，其组件必然会被部署到不同节点，那么肯定会有网络分区，伴随而来的分区容错性也就是必然要面对和解决的一个问题。</li>
 </ul>
 <table>
@@ -454,7 +454,7 @@
 <li><strong>弱状态（Soft state）</strong><br>弱状态指允许系统中的数据存在中间状态，并认为中间状态不影响系统的整体可用性，即允许在不同节点的数据副本之间进行数据同步时存在延时。</li>
 <li><strong>最终一致性（Eventually consistent）</strong><br>最终一致性强调系统中的所有数据副本，在经过一段时间的同步后，最终能够到达一个一致的状态。</li>
 </ul>
-<p>总的来说，BASE理论面向的是大型高可用可扩展的分布式系统，和传统事务的ACID特性是相反的，它不同于ACID的强一致性，而是通过牺牲强一致性来获得可用性，并允许数据在一段时间内不一致，但最终达到一致状态。同时，在实际的分布式场景中，不同业务单元和组件对数据一致性的要求不同，所以在具体的分布式系统架构设计过程中，ACID特性与BASE理论往往又会结合在一起使用。</p>
+<p><strong>总的来说，BASE理论面向的是大型高可用可扩展的分布式系统，和传统事务的ACID特性是相反的，它不同于ACID的强一致性，而是通过牺牲强一致性来获得可用性，并允许数据在一段时间内不一致，但最终达到一致状态。同时，在实际的分布式场景中，不同业务单元和组件对数据一致性的要求不同，所以在具体的分布式系统架构设计过程中，ACID特性与BASE理论往往又会结合在一起使用。</strong></p>
 
       
     </div>
