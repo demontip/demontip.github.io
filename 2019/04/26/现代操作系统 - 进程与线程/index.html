@@ -79,24 +79,24 @@
 
 
 
-<meta name="description" content="进程 操作系统中最核心的概念是进程：是对正在运行程序的一个抽象。在进程模型中，计算机上所有可运行的软件，包括操作系统，被组织成若干顺序进程（sequential process），简称进程（process）。 多道程序设计：在一台多道程序计算机中的内存中，存放多个程序。每个程序可抽象成拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，每个程序都独立运行。当然，实际上只有一个物理程序计数器，">
+<meta name="description" content="进程 操作系统中最核心的概念是进程：是对正在运行程序的一个抽象。在进程模型中，计算机上所有可运行的软件，包括操作系统，被组织成若干顺序进程（sequential process），简称进程（process）。多道程序设计：在一台多道程序计算机中的内存中，存放多个程序。每个程序可抽象成拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，每个程序都独立运行。当然，实际上只有一个物理程序计数器，在">
 <meta name="keywords" content="现代操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="现代操作系统 - 进程与线程">
 <meta property="og:url" content="http://yoursite.com/2019/04/26/现代操作系统 - 进程与线程/index.html">
 <meta property="og:site_name" content="demontip">
-<meta property="og:description" content="进程 操作系统中最核心的概念是进程：是对正在运行程序的一个抽象。在进程模型中，计算机上所有可运行的软件，包括操作系统，被组织成若干顺序进程（sequential process），简称进程（process）。 多道程序设计：在一台多道程序计算机中的内存中，存放多个程序。每个程序可抽象成拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，每个程序都独立运行。当然，实际上只有一个物理程序计数器，">
+<meta property="og:description" content="进程 操作系统中最核心的概念是进程：是对正在运行程序的一个抽象。在进程模型中，计算机上所有可运行的软件，包括操作系统，被组织成若干顺序进程（sequential process），简称进程（process）。多道程序设计：在一台多道程序计算机中的内存中，存放多个程序。每个程序可抽象成拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，每个程序都独立运行。当然，实际上只有一个物理程序计数器，在">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/04/26/现代操作系统%20-%20进程与线程/1.PNG">
-<meta property="og:image" content="http://yoursite.com/2019/04/26/现代操作系统%20-%20进程与线程/E:/blog/现代操作系统%20-%20进程与线程/2.PNG">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/现代操作系统%20-%20进程与线程/2.PNG">
 <meta property="og:image" content="http://yoursite.com/2019/04/26/现代操作系统%20-%20进程与线程/3.PNG">
 <meta property="og:image" content="http://yoursite.com/2019/04/26/现代操作系统%20-%20进程与线程/4.PNG">
 <meta property="og:image" content="http://yoursite.com/2019/04/26/现代操作系统%20-%20进程与线程/5.PNG">
 <meta property="og:image" content="http://yoursite.com/2019/04/26/现代操作系统%20-%20进程与线程/6.PNG">
-<meta property="og:updated_time" content="2019-04-27T06:32:59.511Z">
+<meta property="og:updated_time" content="2019-04-27T13:24:19.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="现代操作系统 - 进程与线程">
-<meta name="twitter:description" content="进程 操作系统中最核心的概念是进程：是对正在运行程序的一个抽象。在进程模型中，计算机上所有可运行的软件，包括操作系统，被组织成若干顺序进程（sequential process），简称进程（process）。 多道程序设计：在一台多道程序计算机中的内存中，存放多个程序。每个程序可抽象成拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，每个程序都独立运行。当然，实际上只有一个物理程序计数器，">
+<meta name="twitter:description" content="进程 操作系统中最核心的概念是进程：是对正在运行程序的一个抽象。在进程模型中，计算机上所有可运行的软件，包括操作系统，被组织成若干顺序进程（sequential process），简称进程（process）。多道程序设计：在一台多道程序计算机中的内存中，存放多个程序。每个程序可抽象成拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，每个程序都独立运行。当然，实际上只有一个物理程序计数器，在">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/26/现代操作系统%20-%20进程与线程/1.PNG">
 
 
@@ -380,27 +380,14 @@
 
       
         <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><hr>
-<p>操作系统中最核心的概念是<strong>进程</strong>：是对正在运行程序的一个抽象。在进程模型中，计算机上所有可运行的软件，包括操作系统，被组织成若干<strong>顺序进程</strong>（sequential process），简称<strong>进程</strong>（process）。</p>
-<p><strong>多道程序设计</strong>：在一台多道程序计算机中的内存中，存放多个程序。每个程序可抽象成拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，每个程序都独立运行。当然，实际上只有一个物理程序计数器，在其中一个程序运行时，它的逻辑程序计数器被装入实际的程序计数器中。该程序结束后，物理程序计数器被保存在内存中该进程的逻辑程序计数器。</p>
-<p><strong>程序和进程的关系</strong>：如果把程序比作一道菜的食谱，那么进程就是厨师阅读食谱、收集原料、炒菜的一系列动作之和。</p>
-<h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><p>Unix系统中，只有一个系统调用可以创建新进程：fork。它会创建一个与调用进程相同的副本，此时两个进程拥有相同的内存映像，子进程接着执行execve或一个类似的系统调用，才会修改内存映像并运行新的程序。</p>
-<p>Windows中，一个Win32函数调用CreateProcess即处理进程的创建，也负责把正确的程序装入新的进程。</p>
-<h3 id="进程的终止"><a href="#进程的终止" class="headerlink" title="进程的终止"></a>进程的终止</h3><p>1）正常退出（自愿）：进程完成工作，通知操作系统退出。Unix调用exit，Windows调用ExitProcess。</p>
-<p>2）出错退出（自愿）：进程发现严重错误。比如文件不存在。</p>
-<p>3）严重错误（非自愿）：进程引起了错误，一般是因为程序中有错误。比如执行一条非法指令、引用不存在的内存、除数是零。</p>
-<p>4）被其他进程杀死（非自愿）：某个程序执行系统调用通知操作系统杀死某个其他进程。Unix中调用kill，Win32是TerminateProcess。</p>
-<h3 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h3><p>进程在存在的过程中共有三种状态：</p>
-<p>1）运行态：进程实际占用CPU。</p>
-<p>2）就绪态：可运行，但因为其他进程正在运行而暂时停止。</p>
-<p>3）阻塞态：不能运行，正在等待外部事件的发生，如等待磁盘上一个文件的读入。</p>
-<p><img src="/2019/04/26/现代操作系统 - 进程与线程/1.PNG" alt></p>
+<p>操作系统中最核心的概念是<strong>进程</strong>：是对正在运行程序的一个抽象。在进程模型中，计算机上所有可运行的软件，包括操作系统，被组织成若干<strong>顺序进程</strong>（sequential process），简称<strong>进程</strong>（process）。<br><strong>多道程序设计</strong>：在一台多道程序计算机中的内存中，存放多个程序。每个程序可抽象成拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，每个程序都独立运行。当然，实际上只有一个物理程序计数器，在其中一个程序运行时，它的逻辑程序计数器被装入实际的程序计数器中。该程序结束后，物理程序计数器被保存在内存中该进程的逻辑程序计数器。<br><strong>程序和进程的关系</strong>：如果把程序比作一道菜的食谱，那么进程就是厨师阅读食谱、收集原料、炒菜的一系列动作之和。</p>
+<h2 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h2><p>Unix系统中，只有一个系统调用可以创建新进程：fork。它会创建一个与调用进程相同的副本，此时两个进程拥有相同的内存映像，子进程接着执行execve或一个类似的系统调用，才会修改内存映像并运行新的程序。<br>Windows中，一个Win32函数调用CreateProcess即处理进程的创建，也负责把正确的程序装入新的进程。</p>
+<h2 id="进程的终止"><a href="#进程的终止" class="headerlink" title="进程的终止"></a>进程的终止</h2><p>1）正常退出（自愿）：进程完成工作，通知操作系统退出。Unix调用exit，Windows调用ExitProcess。<br>2）出错退出（自愿）：进程发现严重错误。比如文件不存在。<br>3）严重错误（非自愿）：进程引起了错误，一般是因为程序中有错误。比如执行一条非法指令、引用不存在的内存、除数是零。<br>4）被其他进程杀死（非自愿）：某个程序执行系统调用通知操作系统杀死某个其他进程。Unix中调用kill，Win32是TerminateProcess。</p>
+<h2 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h2><p>进程在存在的过程中共有三种状态：</p>
+<p>1）运行态：进程实际占用CPU。<br>2）就绪态：可运行，但因为其他进程正在运行而暂时停止。<br>3）阻塞态：不能运行，正在等待外部事件的发生，如等待磁盘上一个文件的读入。<br><img src="/2019/04/26/现代操作系统 - 进程与线程/1.PNG" alt></p>
 <p> <strong>调度程序</strong>：操作系统的一部分，主要工作就是决定应当运行哪一个进程、何时运行及它应该运行多长时间。调度程序是一段非常短小的程序，位于操作系统最底层，包括了所有中断处理、启动进程、停止进程的具体细节。而操作系统的其他部分被简单地组织成进程的形式。</p>
-<h3 id="进程表和多进程之间的切换"><a href="#进程表和多进程之间的切换" class="headerlink" title="进程表和多进程之间的切换"></a>进程表和多进程之间的切换</h3><p>为实现进程模型，操作系统维护这一张表（一个结构数组），即<strong>进程表</strong>（process table）。每个进程占用一个进程表项，包括了进程的程序计数器、堆栈指针、内存分配情况、打开文件的状态、账号和调度信息、以及其他在进程由运行态转换到就绪态或者阻塞态时必须保存的信息。</p>
-<p><img src="/2019/04/26/现代操作系统 - 进程与线程/E:/blog\现代操作系统 - 进程与线程\2.PNG" alt></p>
-<p>这里，寄存器、程序计数器、堆栈指针、程序状态字都是CPU中的硬件设备。<strong>通用寄存器</strong>用于保存关键变量和临时数据。<strong>程序计数器</strong>用于保存将要取出的下一条指令的内存地址。<strong>堆栈指针</strong>指向内存中当前栈的顶端。<strong>程序状态字</strong>（Program Status Word，<strong>PSW</strong>）包含了条件码位、CPU优先级、模式（用户态or内核态），以及各种其他控制位。</p>
-<p>了解进程表后，来看一下<strong>进程的切换</strong>：</p>
-<p>多道程序、多进程、伪并行这些概念其实都是源自进程的切换，也就是实现在单个CPU上维持多个顺序进程的错觉。</p>
-<p>与每一个I/O类关联的是一个称作<strong>中断向量</strong>（interrupt vector）的位置（靠近内存底部的固定区域）。它包含中断服务程序的入口地址。当一个磁盘中断发生时，用户进程1正在运行，则中断硬件将程序计数器、程序状态字、寄存器压人堆栈，计算机随机跳转到中断向量所指示的地址。这些都是硬件完成的操作，随后软件特别是中断服务例程接管一切剩余的工作。具体的中断发生后操作系统最底层的<strong>工作步骤</strong>如下：</p>
+<h2 id="进程表和多进程之间的切换"><a href="#进程表和多进程之间的切换" class="headerlink" title="进程表和多进程之间的切换"></a>进程表和多进程之间的切换</h2><p>为实现进程模型，操作系统维护这一张表（一个结构数组），即<strong>进程表</strong>（process table）。每个进程占用一个进程表项，包括了进程的程序计数器、堆栈指针、内存分配情况、打开文件的状态、账号和调度信息、以及其他在进程由运行态转换到就绪态或者阻塞态时必须保存的信息。<br><img src="/2019/04/26/现代操作系统 - 进程与线程/2.PNG" alt><br>这里，寄存器、程序计数器、堆栈指针、程序状态字都是CPU中的硬件设备。<strong>通用寄存器</strong>用于保存关键变量和临时数据。<strong>程序计数器</strong>用于保存将要取出的下一条指令的内存地址。<strong>堆栈指针</strong>指向内存中当前栈的顶端。<strong>程序状态字</strong>（Program Status Word，<strong>PSW</strong>）包含了条件码位、CPU优先级、模式（用户态or内核态），以及各种其他控制位。</p>
+<p>了解进程表后，来看一下<strong>进程的切换</strong>：<br>多道程序、多进程、伪并行这些概念其实都是源自进程的切换，也就是实现在单个CPU上维持多个顺序进程的错觉。<br>与每一个I/O类关联的是一个称作<strong>中断向量</strong>（interrupt vector）的位置（靠近内存底部的固定区域）。它包含中断服务程序的入口地址。当一个磁盘中断发生时，用户进程1正在运行，则中断硬件将程序计数器、程序状态字、寄存器压人堆栈，计算机随机跳转到中断向量所指示的地址。这些都是硬件完成的操作，随后软件特别是中断服务例程接管一切剩余的工作。具体的中断发生后操作系统最底层的<strong>工作步骤</strong>如下：</p>
 <ol>
 <li>硬件压人堆栈程序计数器等</li>
 <li>硬件从中断向量装入新的程序计数器</li>
@@ -409,68 +396,35 @@
 <li>C中断服务例程运行</li>
 <li>调度程序决定下一个将运行的进程</li>
 <li>C过程返回至汇编代码</li>
-<li>汇编语言过程开始运行新的当前进程<h3 id="CPU利用率"><a href="#CPU利用率" class="headerlink" title="CPU利用率"></a>CPU利用率</h3></li>
+<li>汇编语言过程开始运行新的当前进程<h2 id="CPU利用率"><a href="#CPU利用率" class="headerlink" title="CPU利用率"></a>CPU利用率</h2>在多道程序设计可以提高CPU利用率,如: 内存中有5个进程,每个进程有80%的时间用于I/O等待,只有20%的时间用于计算，那么如果5个程序不同时等待I/O，则CPU理论上利用率是20%*5=100%。<br>更准确点的计算是：<br>设等待I/O占用的时间百分比为p，内存中有n个进程，则n个程序都在等待I/O的概率是p^n，CPU利用率是 1-p^n。</li>
 </ol>
-<p>在多道程序设计可以提高CPU利用率,如: 内存中有5个进程,每个进程有80%的时间用于I/O等待,只有20%的时间用于计算，那么如果5个程序不同时等待I/O，则CPU理论上利用率是20%*5=100%。</p>
-<p>更准确点的计算是：</p>
-<p>设等待I/O占用的时间百分比为p，内存中有n个进程，则n个程序都在等待I/O的概率是p^n，CPU利用率是 1-p^n。</p>
 <h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><hr>
-<p>每个进程有一个地址空间，其中准并行运行多个控制<strong>线程</strong>，这些<strong>线程</strong>就像分离的进程（除了共享地址空间）。</p>
-<p>为什么在一个进程中还要产生这些迷你进程（线程）呢？下面先总结一下使用多线程的原因：</p>
-<h3 id="使用多线程的原因"><a href="#使用多线程的原因" class="headerlink" title="使用多线程的原因"></a>使用多线程的原因</h3><p>1.在许多应用中同时发生着多种活动。某些活动随着时间的推移会被阻塞，通过将这些应用程序分解成可以准并行运行的多个顺序线程，程序设计模型会变得更简单。</p>
-<p>2.由于线程比进程更轻量级，所以它们比进程更容易（即更快）创建，也更容易撤销。许多系统中，创建一个线程较创建一个进程要快10·100倍，在有大量线程需要动态和快速修改时，具有这一特性很有用。</p>
-<p>3.在性能方面，若多个线程都是CPU密集型的，那么并不能获得性能上的增强，但是如果存在大量的计算和大量的I/O处理，拥有多个线程允许这些活动彼此重叠进行，从而会加快应用程序执行的速度。</p>
-<p><strong>举个例子：</strong></p>
-<p>在web服务器中，一般会有一个<strong>分派线程</strong>和多个<strong>工作线程</strong>，分派程序负责从网络中读入工作请求。检查请求后，分派线程选一个空转的工作线程，提交该请求，通常是在每个线程所配有的某个专门字中写一个消息指针，使工作线程从阻塞状态转为就绪状态。此后，工作线程可能需要调用read操作去磁盘读取页面。在该线程阻塞在磁盘操作时，分派线程可无限循环，并将再次检测到的工作请求交给另一个工作线程。</p>
-<h3 id="多线程运行模型"><a href="#多线程运行模型" class="headerlink" title="多线程运行模型"></a>多线程运行模型</h3><p>CPU在线程之间快速切换，制造线程并行运行的假象。</p>
-<p>所有线程有完全一样的地址空间，共享相同的全局变量。具体的线程共享的内容和线程独自的内容如下表：</p>
-<p><img src="/2019/04/26/现代操作系统 - 进程与线程/3.PNG" alt></p>
-<p><strong>这里说明一下每个线程有其自己的堆栈的原因</strong>：</p>
-<p>每个线程的堆栈有一帧，供各个被调用但是还没有返回的过程使用。在该栈帧中存放着相应过程的局部变量以及过程调用后的返回地址，通常每个线程会调用不同的过程，所以每个线程需要有自己的堆栈。</p>
-<p><strong>线程有四种状态</strong>：</p>
-<p>运行、阻塞、就绪、终止，和进程的情况基本一样。</p>
-<p><strong>线程的关系：</strong></p>
-<p>有时线程是有层次的，它们具有一种父子关系，但是，通常不在这样的一种关系，所有的线程都是平等的。</p>
-<p><strong>POSIX线程中常用的调用函数：</strong></p>
-<p>​         pthread_create: 创建一个新的线程</p>
-<pre><code>pthread_exit: 结束调用的线程
-
-pthread_join：等待一个特定的线程退出
-
-pthread_yield：线程自动放弃CPU从而让另一个线程运行
-
-pthread_attr_init: 创建并初始化一个线程的属性结构
-
-pthread_attr_destroy: 删除一个线程的属性结构
-</code></pre><p><strong>使用线程的程序例子：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NUMBER_OF_THREADS 10</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">print_hello_world</span><span class="params">(<span class="keyword">void</span> *tid)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* 输出线程的标识符，然后退出 */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World,Thread %d\n"</span>,tid);</span><br><span class="line">    pthread_exit(<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* 主程序创建10个线程，然后退出。 */</span></span><br><span class="line">    <span class="keyword">pthread_t</span> threads[NUMBER_OF_THREADS];</span><br><span class="line">    <span class="keyword">int</span> status,i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;NUMBER_OF_THREADS;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Main here,Creating thread %d\n"</span>,i);</span><br><span class="line">        status=pthread_create(&amp;thread[i],<span class="literal">NULL</span>,print_hello_world,(<span class="keyword">void</span> *)i);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(status != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"pthread_create returned error code %d\n"</span>,status);</span><br><span class="line">        	<span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="literal">NULL</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="在用户空间实现线程"><a href="#在用户空间实现线程" class="headerlink" title="在用户空间实现线程"></a>在用户空间实现线程</h3><p>把整个线程包放在用户空间，内核对线程包一无所知。从内核角度看，就是按单线程进程管理。</p>
-<p>线程在一个<strong>运行时系统</strong>的上层运行，该运行时系统是一个管理线程的过程的集合。每个进程有专用的<strong>线程表</strong>（thread）。用来记录线程的程序计数器、堆栈指针、寄存器和状态等。</p>
-<p><strong>多线程的切换</strong>与上面说的多进程的切换非常类似。当某个线程做了一些会引起阻塞的事情后，如等待进程中另一个线程完成某项工作，它调用一个运行时系统的过程，该过程检查该线程是否必须进入阻塞状态。如果是，它在线程表中保存该线程的寄存器，查看表中可运行的就绪态，并把新线程的保存值装入机器的寄存器中。只要堆栈指针和程序计数器一被切换，新的线程就又自动投入运行。</p>
-<p><strong>优点：</strong></p>
+<p>每个进程有一个地址空间，其中准并行运行多个控制<strong>线程</strong>，这些<strong>线程</strong>就像分离的进程（除了共享地址空间）。<br>为什么在一个进程中还要产生这些迷你进程（线程）呢？下面先总结一下使用多线程的原因：</p>
+<h2 id="使用多线程的原因"><a href="#使用多线程的原因" class="headerlink" title="使用多线程的原因"></a>使用多线程的原因</h2><p>1.在许多应用中同时发生着多种活动。某些活动随着时间的推移会被阻塞，通过将这些应用程序分解成可以准并行运行的多个顺序线程，程序设计模型会变得更简单。<br>2.由于线程比进程更轻量级，所以它们比进程更容易（即更快）创建，也更容易撤销。许多系统中，创建一个线程较创建一个进程要快10·100倍，在有大量线程需要动态和快速修改时，具有这一特性很有用。<br>3.在性能方面，若多个线程都是CPU密集型的，那么并不能获得性能上的增强，但是如果存在大量的计算和大量的I/O处理，拥有多个线程允许这些活动彼此重叠进行，从而会加快应用程序执行的速度。<br><strong>举个例子：</strong><br>在web服务器中，一般会有一个<strong>分派线程</strong>和多个<strong>工作线程</strong>，分派程序负责从网络中读入工作请求。检查请求后，分派线程选一个空转的工作线程，提交该请求，通常是在每个线程所配有的某个专门字中写一个消息指针，使工作线程从阻塞状态转为就绪状态。此后，工作线程可能需要调用read操作去磁盘读取页面。在该线程阻塞在磁盘操作时，分派线程可无限循环，并将再次检测到的工作请求交给另一个工作线程。</p>
+<h2 id="多线程运行模型"><a href="#多线程运行模型" class="headerlink" title="多线程运行模型"></a>多线程运行模型</h2><p>CPU在线程之间快速切换，制造线程并行运行的假象。<br>所有线程有完全一样的地址空间，共享相同的全局变量。具体的线程共享的内容和线程独自的内容如下表：<br><img src="/2019/04/26/现代操作系统 - 进程与线程/3.PNG" alt><br><strong>这里说明一下每个线程有其自己的堆栈的原因</strong>：<br>每个线程的堆栈有一帧，供各个被调用但是还没有返回的过程使用。在该栈帧中存放着相应过程的局部变量以及过程调用后的返回地址，通常每个线程会调用不同的过程，所以每个线程需要有自己的堆栈。<br><strong>线程有四种状态</strong>：<br>运行、阻塞、就绪、终止，和进程的情况基本一样。<br><strong>线程的关系：</strong><br>有时线程是有层次的，它们具有一种父子关系，但是，通常不在这样的一种关系，所有的线程都是平等的。<br><strong>POSIX线程中常用的调用函数：</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pthread_create: 创建一个新的线程</span><br><span class="line">pthread_exit: 结束调用的线程</span><br><span class="line">pthread_join：等待一个特定的线程退出</span><br><span class="line">pthread_yield：线程自动放弃CPU从而让另一个线程运行</span><br><span class="line">pthread_attr_init: 创建并初始化一个线程的属性结构</span><br><span class="line">pthread_attr_destroy: 删除一个线程的属性结构</span><br></pre></td></tr></table></figure></p>
+<p><strong>使用线程的程序例子：</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NUMBER_OF_THREADS 10</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">print_hello_world</span><span class="params">(<span class="keyword">void</span> *tid)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* 输出线程的标识符，然后退出 */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World,Thread %d\n"</span>,tid);</span><br><span class="line">    pthread_exit(<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* 主程序创建10个线程，然后退出。 */</span></span><br><span class="line">    <span class="keyword">pthread_t</span> threads[NUMBER_OF_THREADS];</span><br><span class="line">    <span class="keyword">int</span> status,i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;NUMBER_OF_THREADS;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Main here,Creating thread %d\n"</span>,i);</span><br><span class="line">        status=pthread_create(&amp;thread[i],<span class="literal">NULL</span>,print_hello_world,(<span class="keyword">void</span> *)i);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(status != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"pthread_create returned error code %d\n"</span>,status);</span><br><span class="line">        	<span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="literal">NULL</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="在用户空间实现线程"><a href="#在用户空间实现线程" class="headerlink" title="在用户空间实现线程"></a>在用户空间实现线程</h2><p>把整个线程包放在用户空间，内核对线程包一无所知。从内核角度看，就是按单线程进程管理。<br>线程在一个<strong>运行时系统</strong>的上层运行，该运行时系统是一个管理线程的过程的集合。每个进程有专用的<strong>线程表</strong>（thread）。用来记录线程的程序计数器、堆栈指针、寄存器和状态等。<br><strong>多线程的切换</strong>与上面说的多进程的切换非常类似。当某个线程做了一些会引起阻塞的事情后，如等待进程中另一个线程完成某项工作，它调用一个运行时系统的过程，该过程检查该线程是否必须进入阻塞状态。如果是，它在线程表中保存该线程的寄存器，查看表中可运行的就绪态，并把新线程的保存值装入机器的寄存器中。只要堆栈指针和程序计数器一被切换，新的线程就又自动投入运行。<br><strong>优点：</strong></p>
 <ol>
 <li>用户级的线程包可以在不支持线程的操作系统上实现。</li>
 <li>速度快。首先线程的切换（包括保存线程状态和调用调度程序选择其他线程）都是本地过程，比内核调用效率更高。另一方面，不需要陷入内核，不需要上下文切换，不需要对内存高速缓存进行刷新，所以线程调度很迅捷。</li>
 <li>允许每个进程有自己定制的调度算法。</li>
 </ol>
 <p><strong>缺点：</strong></p>
-<pre><code>1. 如何实现阻塞系统调用。比如在没有任何击键之前，一个线程读取键盘，这样会导致所有线程的停止。 有两种不太好的解决方法：把系统调用都改为非阻塞的（如没有被缓冲的字符时，对键盘的read操作可以只返回0字节，而不是阻塞），但这样需要改变操作系统。 另一种方法是如果某个调用会发生阻塞。就提前通知（如某些UNIX中，通过系统调用select可以通知调用者预期的read是否会阻塞，只有不阻塞时才调用read）。
-
-2. 如果一个线程开始运行，那在该进程中的其他进程就不能运行。在一个单独的进程内部，没有时钟中断，就不能用轮转调度（轮流执行线程）。 
-</code></pre><p><img src="/2019/04/26/现代操作系统 - 进程与线程/4.PNG" alt></p>
-<h3 id="在内核空间实现线程"><a href="#在内核空间实现线程" class="headerlink" title="在内核空间实现线程"></a>在内核空间实现线程</h3><p>线程表放在内核中，一个线程需要创建新的线程或撤销已有线程时，它进行系统调用，系统调用通过对线程表的更新完成线程创建或者撤销。</p>
-<p>由于在内核中创建或撤销线程的代价比较大，某些系统采用环保的处理方式，回收其线程。当一个线程被撤销，就把它标志为不可运行的，但内核数据结构没有受影响，稍后创建新的线程时，就启动某个旧线程，从而节省开销。</p>
-<p><strong>优点：</strong></p>
+<ol>
+<li>如何实现阻塞系统调用。比如在没有任何击键之前，一个线程读取键盘，这样会导致所有线程的停止。 有两种不太好的解决方法：把系统调用都改为非阻塞的（如没有被缓冲的字符时，对键盘的read操作可以只返回0字节，而不是阻塞），但这样需要改变操作系统。 另一种方法是如果某个调用会发生阻塞。就提前通知（如某些UNIX中，通过系统调用select可以通知调用者预期的read是否会阻塞，只有不阻塞时才调用read）。</li>
+<li>如果一个线程开始运行，那在该进程中的其他进程就不能运行。在一个单独的进程内部，没有时钟中断，就不能用轮转调度（轮流执行线程）。<br> <img src="/2019/04/26/现代操作系统 - 进程与线程/4.PNG" alt></li>
+</ol>
+<h2 id="在内核空间实现线程"><a href="#在内核空间实现线程" class="headerlink" title="在内核空间实现线程"></a>在内核空间实现线程</h2><p>线程表放在内核中，一个线程需要创建新的线程或撤销已有线程时，它进行系统调用，系统调用通过对线程表的更新完成线程创建或者撤销。<br>由于在内核中创建或撤销线程的代价比较大，某些系统采用环保的处理方式，回收其线程。当一个线程被撤销，就把它标志为不可运行的，但内核数据结构没有受影响，稍后创建新的线程时，就启动某个旧线程，从而节省开销。<br><strong>优点：</strong></p>
 <ol>
 <li>内核线程可以在一个线程阻塞时，方便地查询该进程是否有其他可运行的线程，并先去运行这些线程（用户态线程是不可以的，因为这是它被内核看做单进程线程）。</li>
 </ol>
 <p><strong>缺点</strong></p>
-<pre><code>1. 对应优点1，缺点就是系统调用代价比较大，当线程操作比较多时会带来很大的花销。
-2. 当一个多线程进程创建新的进程时，会发生什么？一般如果它调用exec来启动新的程序，或许一个线程是正确的选择；如果它继续执行，则最好复制所有的线程。
-3. 另一个问题是信号，信号是发给进程而不是线程，当一个信号到达，并且多个线程都注册了该信号（注册即代表期望接收的信号），那该把这个信号交给谁？
-</code></pre><p><img src="/2019/04/26/现代操作系统 - 进程与线程/5.PNG" alt></p>
-<h3 id="混合实现"><a href="#混合实现" class="headerlink" title="混合实现"></a>混合实现</h3><p>为结合用户级线程和内核级线程的优点，发明了混合实现，即用内核级线程，然后将用户级线程与某些内核级线程多路复用起来，编程人员决定具体的连接数量。</p>
-<p><img src="/2019/04/26/现代操作系统 - 进程与线程/6.PNG" alt></p>
+<ol>
+<li>对应优点1，缺点就是系统调用代价比较大，当线程操作比较多时会带来很大的花销。</li>
+<li>当一个多线程进程创建新的进程时，会发生什么？一般如果它调用exec来启动新的程序，或许一个线程是正确的选择；如果它继续执行，则最好复制所有的线程。</li>
+<li>另一个问题是信号，信号是发给进程而不是线程，当一个信号到达，并且多个线程都注册了该信号（注册即代表期望接收的信号），那该把这个信号交给谁？<br><img src="/2019/04/26/现代操作系统 - 进程与线程/5.PNG" alt></li>
+</ol>
+<h2 id="混合实现"><a href="#混合实现" class="headerlink" title="混合实现"></a>混合实现</h2><p>为结合用户级线程和内核级线程的优点，发明了混合实现，即用内核级线程，然后将用户级线程与某些内核级线程多路复用起来，编程人员决定具体的连接数量。<br><img src="/2019/04/26/现代操作系统 - 进程与线程/6.PNG" alt></p>
 
       
     </div>
@@ -663,7 +617,7 @@ pthread_attr_destroy: 删除一个线程的属性结构
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的创建"><span class="nav-number">1.0.1.</span> <span class="nav-text">进程的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的终止"><span class="nav-number">1.0.2.</span> <span class="nav-text">进程的终止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的状态"><span class="nav-number">1.0.3.</span> <span class="nav-text">进程的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程表和多进程之间的切换"><span class="nav-number">1.0.4.</span> <span class="nav-text">进程表和多进程之间的切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU利用率"><span class="nav-number">1.0.5.</span> <span class="nav-text">CPU利用率</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用多线程的原因"><span class="nav-number">2.0.1.</span> <span class="nav-text">使用多线程的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程运行模型"><span class="nav-number">2.0.2.</span> <span class="nav-text">多线程运行模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在用户空间实现线程"><span class="nav-number">2.0.3.</span> <span class="nav-text">在用户空间实现线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在内核空间实现线程"><span class="nav-number">2.0.4.</span> <span class="nav-text">在内核空间实现线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合实现"><span class="nav-number">2.0.5.</span> <span class="nav-text">混合实现</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的创建"><span class="nav-number">1.1.</span> <span class="nav-text">进程的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的终止"><span class="nav-number">1.2.</span> <span class="nav-text">进程的终止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的状态"><span class="nav-number">1.3.</span> <span class="nav-text">进程的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程表和多进程之间的切换"><span class="nav-number">1.4.</span> <span class="nav-text">进程表和多进程之间的切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU利用率"><span class="nav-number">1.5.</span> <span class="nav-text">CPU利用率</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用多线程的原因"><span class="nav-number">2.1.</span> <span class="nav-text">使用多线程的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程运行模型"><span class="nav-number">2.2.</span> <span class="nav-text">多线程运行模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在用户空间实现线程"><span class="nav-number">2.3.</span> <span class="nav-text">在用户空间实现线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在内核空间实现线程"><span class="nav-number">2.4.</span> <span class="nav-text">在内核空间实现线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合实现"><span class="nav-number">2.5.</span> <span class="nav-text">混合实现</span></a></li></ol></li></ol></div>
             
 
           </div>
