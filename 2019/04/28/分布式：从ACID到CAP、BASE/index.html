@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="demontip">
 <meta property="og:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。 原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能破">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-27T13:56:22.821Z">
+<meta property="og:updated_time" content="2019-04-27T14:01:28.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式：从ACID到CAP&#x2F;BASE">
 <meta name="twitter:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。 原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能破">
@@ -372,11 +372,11 @@
       
 
       
-        <h1 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h1><hr>
+        <h3 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h3><hr>
 <p>事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。</p>
-<h2 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h2><p>原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行</p>
-<h2 id="一致性（Consistency）"><a href="#一致性（Consistency）" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h2><p>一致性指事务的执行不能破坏数据库数据的完整性和一致性。事务执行的结果必须是使数据库从一个一致性状态转变到另一个一致性状态。比如一个转账系统中，A向B转了100块钱，不可能出现A的钱扣了而B没收到钱。</p>
-<h2 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h2><p>隔离性指在并发环境里，并发的事务是相互隔离的，一个事务的执行不能被其他事务干扰。<br>标准SQL规范中定义了4个事务隔离级别：</p>
+<h4 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h4><p>原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行</p>
+<h4 id="一致性（Consistency）"><a href="#一致性（Consistency）" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h4><p>一致性指事务的执行不能破坏数据库数据的完整性和一致性。事务执行的结果必须是使数据库从一个一致性状态转变到另一个一致性状态。比如一个转账系统中，A向B转了100块钱，不可能出现A的钱扣了而B没收到钱。</p>
+<h4 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h4><p>隔离性指在并发环境里，并发的事务是相互隔离的，一个事务的执行不能被其他事务干扰。<br>标准SQL规范中定义了4个事务隔离级别：</p>
 <ul>
 <li><strong>未授权读取（Read Uncommitted）</strong> 可读取其他事务并未提交的数据。</li>
 <li><strong>授权读取（Read Committed）</strong>  只能读取被提交的数据。</li>
@@ -420,13 +420,13 @@
 </tbody>
 </table>
 <p>其中，<br><strong>脏读：</strong> 事务A在执行阶段，会将某项数据值从1开始，做加1操作直到变成10之后进行事务提交，脏读是事务B可以读到A操作过程的中间值2.3…9 ，只发生在未授权读取。<br><strong>可重复读：</strong> 事务A将数据项从1加到10，事务C将数据项从10加到20，事务B在前后两次读取时可能会读到1、10、20。<br><strong>幻读：</strong>事务B第一次读完一张表后，事务A在表中插入/删除了一行，事务B再次读表发现行数不一致。</p>
-<h2 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h2><p>持久性指一个事务一旦提交，它对数据库中对应数据的状态变更应该是永久性的。</p>
-<h1 id="CAP-BASE"><a href="#CAP-BASE" class="headerlink" title="CAP/BASE"></a>CAP/BASE</h1><hr>
+<h4 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h4><p>持久性指一个事务一旦提交，它对数据库中对应数据的状态变更应该是永久性的。</p>
+<h3 id="CAP-BASE"><a href="#CAP-BASE" class="headerlink" title="CAP/BASE"></a>CAP/BASE</h3><hr>
 <p>分布式系统中会出现分布式事务，即事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于分布式系统的不同节点之上。一个分布式事务可以看成是由多个位于不同节点的子事务组成。要实现一套严格满足ACID特性的分布式事务是很复杂的，必会在可用性和严格一致性之间出现冲突，为解决这一问题，出现了CAP和BASE的分布式系统经典理论。</p>
-<h2 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h2><p>一个分布式系统不可能同时满足一致性、可用性和分区容错性这三个基本要求，最多只能满足其中两个。</p>
-<h3 id="一致性（Consistency）-1"><a href="#一致性（Consistency）-1" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h3><p>一致性指数据在多个副本之间是否能够保持一致的特性。也就是对一个节点数据项进行了更新，其他节点的数据也要得到更新。</p>
-<h3 id="可用性（Availability）"><a href="#可用性（Availability）" class="headerlink" title="可用性（Availability）"></a>可用性（Availability）</h3><p>可用性指系统提供的服务必须一直处于可用状态，对用户的每一个请求总是能够在有限时间内返回结果。<br>“有限时间”指：对于用户的一个操作请求，系统必须在指定时间内返回对应的处理结果。<br>“返回结果”指：系统在完成对用户请求的处理后，返回一个正常的响应结果，即成功or失败，而不是让用户干感到困惑的结果。</p>
-<h3 id="分区容错性（Partition-tolerance）"><a href="#分区容错性（Partition-tolerance）" class="headerlink" title="分区容错性（Partition tolerance）"></a>分区容错性（Partition tolerance）</h3><p>分区容错性约束了分布式系统具有如下特性：分布式系统在遇到任何网络分区故障时，仍然可以保证对外提供满足一致性和可用性的服务。<br>对于一个分布式系统，分区容错性是最基本的要求了。因为作为分布式系统，其组件必然会被部署到不同节点，那么肯定会有网络分区，伴随而来的分区容错性也就是必然要面对和解决的一个问题。</p>
+<h4 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h4><p>一个分布式系统不可能同时满足一致性、可用性和分区容错性这三个基本要求，最多只能满足其中两个。</p>
+<h5 id="一致性（Consistency）-1"><a href="#一致性（Consistency）-1" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h5><p>一致性指数据在多个副本之间是否能够保持一致的特性。也就是对一个节点数据项进行了更新，其他节点的数据也要得到更新。</p>
+<h5 id="可用性（Availability）"><a href="#可用性（Availability）" class="headerlink" title="可用性（Availability）"></a>可用性（Availability）</h5><p>可用性指系统提供的服务必须一直处于可用状态，对用户的每一个请求总是能够在有限时间内返回结果。<br>“有限时间”指：对于用户的一个操作请求，系统必须在指定时间内返回对应的处理结果。<br>“返回结果”指：系统在完成对用户请求的处理后，返回一个正常的响应结果，即成功or失败，而不是让用户干感到困惑的结果。</p>
+<h5 id="分区容错性（Partition-tolerance）"><a href="#分区容错性（Partition-tolerance）" class="headerlink" title="分区容错性（Partition tolerance）"></a>分区容错性（Partition tolerance）</h5><p>分区容错性约束了分布式系统具有如下特性：分布式系统在遇到任何网络分区故障时，仍然可以保证对外提供满足一致性和可用性的服务。<br>对于一个分布式系统，分区容错性是最基本的要求了。因为作为分布式系统，其组件必然会被部署到不同节点，那么肯定会有网络分区，伴随而来的分区容错性也就是必然要面对和解决的一个问题。</p>
 <table>
 <thead>
 <tr>
@@ -449,10 +449,10 @@
 </tr>
 </tbody>
 </table>
-<h2 id="BASE"><a href="#BASE" class="headerlink" title="BASE"></a>BASE</h2><p>BASE是Basically Available（基本可用）、Soft state（软状态）和Eventually consistent（最终一致性）的简称。BASE是对CAP中一致性和可用性权衡的结果，其核心思想是既然做不到强一致性（Strong consistency），但可以采取适当方式使系统达到最终一致性（Eventual consistency）。</p>
-<h3 id="基本可用（Basically-Available）"><a href="#基本可用（Basically-Available）" class="headerlink" title="基本可用（Basically Available）"></a>基本可用（Basically Available）</h3><p>基本可用是指分布式系统在出现不可预知故障时，允许损失部分可用性。如响应时间上的损失，功能上的损失。</p>
-<h3 id="弱状态（Soft-state）"><a href="#弱状态（Soft-state）" class="headerlink" title="弱状态（Soft state）"></a>弱状态（Soft state）</h3><p>弱状态指允许系统中的数据存在中间状态，并认为中间状态不影响系统的整体可用性，即允许在不同节点的数据副本之间进行数据同步时存在延时。</p>
-<h3 id="最终一致性（Eventually-consistent）"><a href="#最终一致性（Eventually-consistent）" class="headerlink" title="最终一致性（Eventually consistent）"></a>最终一致性（Eventually consistent）</h3><p>最终一致性强调系统中的所有数据副本，在经过一段时间的同步后，最终能够到达一个一致的状态。</p>
+<h4 id="BASE"><a href="#BASE" class="headerlink" title="BASE"></a>BASE</h4><p>BASE是Basically Available（基本可用）、Soft state（软状态）和Eventually consistent（最终一致性）的简称。BASE是对CAP中一致性和可用性权衡的结果，其核心思想是既然做不到强一致性（Strong consistency），但可以采取适当方式使系统达到最终一致性（Eventual consistency）。</p>
+<h5 id="基本可用（Basically-Available）"><a href="#基本可用（Basically-Available）" class="headerlink" title="基本可用（Basically Available）"></a>基本可用（Basically Available）</h5><p>基本可用是指分布式系统在出现不可预知故障时，允许损失部分可用性。如响应时间上的损失，功能上的损失。</p>
+<h5 id="弱状态（Soft-state）"><a href="#弱状态（Soft-state）" class="headerlink" title="弱状态（Soft state）"></a>弱状态（Soft state）</h5><p>弱状态指允许系统中的数据存在中间状态，并认为中间状态不影响系统的整体可用性，即允许在不同节点的数据副本之间进行数据同步时存在延时。</p>
+<h5 id="最终一致性（Eventually-consistent）"><a href="#最终一致性（Eventually-consistent）" class="headerlink" title="最终一致性（Eventually consistent）"></a>最终一致性（Eventually consistent）</h5><p>最终一致性强调系统中的所有数据副本，在经过一段时间的同步后，最终能够到达一个一致的状态。</p>
 <p>总的来说，BASE理论面向的是大型高可用可扩展的分布式系统，和传统事务的ACID特性是相反的，它不同于ACID的强一致性，而是通过牺牲强一致性来获得可用性，并允许数据在一段时间内不一致，但最终达到一致状态。同时，在实际的分布式场景中，不同业务单元和组件对数据一致性的要求不同，所以在具体的分布式系统架构设计过程中，ACID特性与BASE理论往往又会结合在一起使用。</p>
 
       
@@ -642,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ACID"><span class="nav-number">1.</span> <span class="nav-text">ACID</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原子性（Atomicity）"><span class="nav-number">1.1.</span> <span class="nav-text">原子性（Atomicity）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一致性（Consistency）"><span class="nav-number">1.2.</span> <span class="nav-text">一致性（Consistency）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隔离性（Isolation）"><span class="nav-number">1.3.</span> <span class="nav-text">隔离性（Isolation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久性（Durability）"><span class="nav-number">1.4.</span> <span class="nav-text">持久性（Durability）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CAP-BASE"><span class="nav-number">2.</span> <span class="nav-text">CAP/BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CAP"><span class="nav-number">2.1.</span> <span class="nav-text">CAP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性（Consistency）-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">一致性（Consistency）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可用性（Availability）"><span class="nav-number">2.1.2.</span> <span class="nav-text">可用性（Availability）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分区容错性（Partition-tolerance）"><span class="nav-number">2.1.3.</span> <span class="nav-text">分区容错性（Partition tolerance）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BASE"><span class="nav-number">2.2.</span> <span class="nav-text">BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本可用（Basically-Available）"><span class="nav-number">2.2.1.</span> <span class="nav-text">基本可用（Basically Available）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弱状态（Soft-state）"><span class="nav-number">2.2.2.</span> <span class="nav-text">弱状态（Soft state）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最终一致性（Eventually-consistent）"><span class="nav-number">2.2.3.</span> <span class="nav-text">最终一致性（Eventually consistent）</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ACID"><span class="nav-number">1.</span> <span class="nav-text">ACID</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原子性（Atomicity）"><span class="nav-number">1.1.</span> <span class="nav-text">原子性（Atomicity）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一致性（Consistency）"><span class="nav-number">1.2.</span> <span class="nav-text">一致性（Consistency）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隔离性（Isolation）"><span class="nav-number">1.3.</span> <span class="nav-text">隔离性（Isolation）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#持久性（Durability）"><span class="nav-number">1.4.</span> <span class="nav-text">持久性（Durability）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAP-BASE"><span class="nav-number">2.</span> <span class="nav-text">CAP/BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP"><span class="nav-number">2.1.</span> <span class="nav-text">CAP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一致性（Consistency）-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">一致性（Consistency）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可用性（Availability）"><span class="nav-number">2.1.2.</span> <span class="nav-text">可用性（Availability）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分区容错性（Partition-tolerance）"><span class="nav-number">2.1.3.</span> <span class="nav-text">分区容错性（Partition tolerance）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BASE"><span class="nav-number">2.2.</span> <span class="nav-text">BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本可用（Basically-Available）"><span class="nav-number">2.2.1.</span> <span class="nav-text">基本可用（Basically Available）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#弱状态（Soft-state）"><span class="nav-number">2.2.2.</span> <span class="nav-text">弱状态（Soft state）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最终一致性（Eventually-consistent）"><span class="nav-number">2.2.3.</span> <span class="nav-text">最终一致性（Eventually consistent）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
