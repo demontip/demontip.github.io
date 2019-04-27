@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="demontip">
 <meta property="og:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。 原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能破">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-27T13:43:39.244Z">
+<meta property="og:updated_time" content="2019-04-27T13:52:47.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式：从ACID到CAP&#x2F;BASE">
 <meta name="twitter:description" content="ACID 事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上可以指数据库事务。事务具有四个特征：原子性、一致性、隔离性、持久性（ACID）。 原子性（Atomicity）原子性指事务必须是一个原子的操作序列单元。事务中的各项操作在一次执行过程中只能有两种状态：全部成功执行/全部不执行 一致性（Consistency）一致性指事务的执行不能破">
@@ -381,9 +381,47 @@
 <li><strong>未授权读取（Read Uncommitted）</strong> 可读取其他事务并未提交的数据。</li>
 <li><strong>授权读取（Read Committed）</strong>  只能读取被提交的数据。</li>
 <li><strong>可重复读取（Repeatable Read）</strong></li>
-<li><strong>串行化（Serializable）</strong><br>| 隔离级别   | 脏读   | 可重复读 | 幻读   |<br>| ———- | —— | ——– | —— |<br>| 未授权读取 | 存在   | 不可以   | 存在   |<br>| 授权读取   | 不存在 | 不可以   | 存在   |<br>| 可重复读取 | 不存在 | 可以     | 存在   |<br>| 串行化     | 不存在 | 可以     | 不存在 |<br>其中，<br><strong>脏读：</strong> 事务A在执行阶段，会将某项数据值从1开始，做加1操作直到变成10之后进行事务提交，脏读是事务B可以读到A操作过程的中间值2.3…9 ，只发生在未授权读取。<br><strong>可重复读：</strong> 事务A将数据项从1加到10，事务C将数据项从10加到20，事务B在前后两次读取时可能会读到1、10、20。<br><strong>幻读：</strong>事务B第一次读完一张表后，事务A在表中插入/删除了一行，事务B再次读表发现行数不一致。<h2 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h2>持久性指一个事务一旦提交，它对数据库中对应数据的状态变更应该是永久性的。<h1 id="CAP-BASE"><a href="#CAP-BASE" class="headerlink" title="CAP/BASE"></a>CAP/BASE</h1></li>
+<li><strong>串行化（Serializable）</strong></li>
 </ul>
-<hr>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>未授权读取</td>
+<td>存在</td>
+<td>不可以</td>
+<td>存在</td>
+</tr>
+<tr>
+<td>授权读取</td>
+<td>不存在</td>
+<td>不可以</td>
+<td>存在</td>
+</tr>
+<tr>
+<td>可重复读取</td>
+<td>不存在</td>
+<td>可以</td>
+<td>存在</td>
+</tr>
+<tr>
+<td>串行化</td>
+<td>不存在</td>
+<td>不存在</td>
+<td>不存在</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<br><strong>脏读：</strong> 事务A在执行阶段，会将某项数据值从1开始，做加1操作直到变成10之后进行事务提交，脏读是事务B可以读到A操作过程的中间值2.3…9 ，只发生在未授权读取。<br><strong>可重复读：</strong> 事务A将数据项从1加到10，事务C将数据项从10加到20，事务B在前后两次读取时可能会读到1、10、20。<br><strong>幻读：</strong>事务B第一次读完一张表后，事务A在表中插入/删除了一行，事务B再次读表发现行数不一致。</p>
+<h2 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h2><p>持久性指一个事务一旦提交，它对数据库中对应数据的状态变更应该是永久性的。</p>
+<h1 id="CAP-BASE"><a href="#CAP-BASE" class="headerlink" title="CAP/BASE"></a>CAP/BASE</h1><hr>
 <p>分布式系统中会出现分布式事务，即事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于分布式系统的不同节点之上。一个分布式事务可以看成是由多个位于不同节点的子事务组成。要实现一套严格满足ACID特性的分布式事务是很复杂的，必会在可用性和严格一致性之间出现冲突，为解决这一问题，出现了CAP和BASE的分布式系统经典理论。</p>
 <h2 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h2><p>一个分布式系统不可能同时满足一致性、可用性和分区容错性这三个基本要求，最多只能满足其中两个。</p>
 <h3 id="一致性（Consistency）-1"><a href="#一致性（Consistency）-1" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h3><p>一致性指数据在多个副本之间是否能够保持一致的特性。也就是对一个节点数据项进行了更新，其他节点的数据也要得到更新。</p>
